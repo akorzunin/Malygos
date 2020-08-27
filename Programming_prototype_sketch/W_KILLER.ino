@@ -1,13 +1,10 @@
 
 
-void W_KILLER_function(){ //ЧГК -0
-if (!W_KILLER_init){
+void W_KILLER_function(){ 
+if (!W_KILLER_init){ //инициализация режима
   Serial.println("W_KILLER");
-  digitalWrite(seg_1bit_pin_A , 1);
-  digitalWrite(seg_1bit_pin_B , 1);
-  digitalWrite(seg_1bit_pin_G , 1);
-  digitalWrite(seg_1bit_pin_C , 1);
-  digitalWrite(seg_1bit_pin_D , 1);
+  //вывод 3
+  disp_1bit_7seg(3);
   
   W_KILLER_init = true; 
 }
