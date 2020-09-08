@@ -9,9 +9,10 @@ void CGK_function(){ //ЧГК -0
     CGK_init = true; //это значит что инициализация проведена
   }  
   //if (myTimer.isReady()) Serial.println("CGK" + String(CGK_state));
-if (resetBtn.isSingle()) CGK_state = end_CGK;  
-if (modeBtn.isSingle()) Serial.println("CGK"); 
-if (selectBtn.isDouble()) {
+if (resetBtn.isSingle()) CGK_state = end_CGK;  //ресет режима
+if (modeBtn.isSingle()) Serial.println("CGK");
+//запуск режима
+if (selectBtn.isDouble()) { 
   CGK_state = start_CGK; //мб переписать потом под свич кейс
   short_tone();
   THE_FINAL_COUNTDOWN = CGK_main_time;

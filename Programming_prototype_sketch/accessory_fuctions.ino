@@ -39,7 +39,7 @@ void led_strip_display(u16 led_val, u32 led_color){ //функция вывод�
     strip_2.clear();
     strip_3.clear();
   if(led_val != 0){
-  for (int i = 0; i < led_val; i++ ) {    
+  for (u8 i = 0; i < led_val; i++ ) {    
     strip_1.setPixelColor(i, led_color);            
     strip_2.setPixelColor(i, led_color);    
     strip_3.setPixelColor(i, led_color);     
@@ -54,14 +54,6 @@ if(val == 0){
   for(u8 i = 0; i < 8; i++){
     digitalWrite(seg_1bit[i] , 0);
   }
-//  digitalWrite(seg_1bit_pin_A , 0); 0
-//  digitalWrite(seg_1bit_pin_B , 0); 1
-//  digitalWrite(seg_1bit_pin_C , 0); 2
-//  digitalWrite(seg_1bit_pin_G , 0); 3 
-//  digitalWrite(seg_1bit_pin_E , 0); 4
-//  digitalWrite(seg_1bit_pin_D , 0); 5
-//  digitalWrite(seg_1bit_pin_F , 0); 6
-//  digitalWrite(seg_1bit_pin_DP , 0); 7
 }
 
 if(val == 1){
@@ -114,9 +106,25 @@ void falling_tone(){
   tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
 }
 
-
-
-
-
-
-  
+void display_btn_strip(u8 btn_number, u8 height){
+static u32 color;
+  if ((btn_number%5) == 0) color = 0xff0000; //мб прописать формулу в ИФе
+      else if (btn_number%5 == 1) color = 0xffff00;
+        else if (btn_number%5 == 2) color = 0x00ff00;
+          else if (btn_number%5 == 3) color = 0x00ffff;
+            else if (btn_number%5 == 4) color = 0x0000ff;
+              else color = 0xffffff;
+    if ( height >= 1){
+    strip_1.setPixelColor(2*btn_number, color);
+    strip_1.setPixelColor(2*btn_number + 1, color);
+      if ( height >= 2){
+      strip_2.setPixelColor(2*btn_number, color);
+      strip_2.setPixelColor(2*btn_number + 1, color);
+        if ( height >= 3){
+        strip_3.setPixelColor(2*btn_number, color);
+        strip_3.setPixelColor(2*btn_number + 1, color);
+        //else ; надо ли бобавлять исключения для 0 высоты чтобы очистить столбец или сделать это по другому, но зачем если есть прекрасный led_strip_display(0, 0);
+        }
+      }
+    }
+}

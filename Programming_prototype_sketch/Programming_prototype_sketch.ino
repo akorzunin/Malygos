@@ -43,75 +43,75 @@
 int8_t DispMSG[] = {1, 2, 3, 4}; 
  
 // кнопки для игроков
-#define buttonPin_37 37
-#define buttonPin_38 38
-#define buttonPin_39 39
-#define buttonPin_40 40
-#define buttonPin_41 41
-#define buttonPin_42 42
-#define buttonPin_43 43
-#define buttonPin_44 44
-#define buttonPin_45 45
-#define buttonPin_46 46
-#define buttonPin_47 47
-#define buttonPin_48 48
-#define buttonPin_49 49
-#define buttonPin_50 50
-#define buttonPin_51 51
+#define buttonPin_0 37
+#define buttonPin_1 38
+#define buttonPin_2 39
+#define buttonPin_3 40
+#define buttonPin_4 41
+#define buttonPin_5 42
+#define buttonPin_6 43
+#define buttonPin_7 44
+#define buttonPin_8 45
+#define buttonPin_9 46
+#define buttonPin_10 47
+#define buttonPin_11 48
+#define buttonPin_12 49
+#define buttonPin_13 50
+#define buttonPin_14 51
 
 const u8 button_pins[]{
-  buttonPin_37, 
-  buttonPin_38,
-  buttonPin_39, 
-  buttonPin_40, 
-  buttonPin_41, 
-  buttonPin_42, 
-  buttonPin_43, 
-  buttonPin_44, 
-  buttonPin_45, 
-  buttonPin_46, 
-  buttonPin_47, 
-  buttonPin_48, 
-  buttonPin_49, 
-  buttonPin_50, 
-  buttonPin_51 
+  buttonPin_0, 
+  buttonPin_1,
+  buttonPin_2, 
+  buttonPin_3, 
+  buttonPin_4, 
+  buttonPin_5, 
+  buttonPin_6, 
+  buttonPin_7, 
+  buttonPin_8, 
+  buttonPin_9, 
+  buttonPin_10, 
+  buttonPin_11, 
+  buttonPin_12, 
+  buttonPin_13, 
+  buttonPin_14 
 };
 
 volatile u8 buttons_state[15]; // массив который хранит информацию собранную после опроса кнопок по прерыванию
 
 //светодиодные лампы над кнопками
-#define ledPin_22 22
-#define ledPin_23 23
-#define ledPin_24 24
-#define ledPin_25 25
-#define ledPin_26 26
-#define ledPin_27 27
-#define ledPin_28 28
-#define ledPin_29 29
-#define ledPin_30 30
-#define ledPin_31 31
-#define ledPin_32 32
-#define ledPin_33 33
-#define ledPin_34 34
-#define ledPin_35 35
-#define ledPin_36 36
+#define ledPin_0 22
+#define ledPin_1 23
+#define ledPin_2 24
+#define ledPin_3 25
+#define ledPin_4 26
+#define ledPin_5 27
+#define ledPin_6 28
+#define ledPin_7 29
+#define ledPin_8 30
+#define ledPin_9 31
+#define ledPin_10 32
+#define ledPin_11 33
+#define ledPin_12 34
+#define ledPin_13 35
+#define ledPin_14 36
 
 const u8 led_pins[] = {
-  ledPin_22, 
-  ledPin_23, 
-  ledPin_24, 
-  ledPin_25, 
-  ledPin_26, 
-  ledPin_27, 
-  ledPin_28, 
-  ledPin_29, 
-  ledPin_30, 
-  ledPin_31, 
-  ledPin_32, 
-  ledPin_33, 
-  ledPin_34, 
-  ledPin_35, 
-  ledPin_36 
+  ledPin_0, 
+  ledPin_1, 
+  ledPin_2, 
+  ledPin_3, 
+  ledPin_4, 
+  ledPin_5, 
+  ledPin_6, 
+  ledPin_7, 
+  ledPin_8, 
+  ledPin_9, 
+  ledPin_10, 
+  ledPin_11, 
+  ledPin_12, 
+  ledPin_13, 
+  ledPin_14 
 };
 u8 leds_state[15]; //массив с состояниями светодиодов над кнопками
 
@@ -138,6 +138,7 @@ const char seg_1bit[] = {
 
 
 GTimer myTimer(MS, 3000);
+GTimer stripTimer(MS, 1000);
 
 GTimer led_timer(MS);
 
@@ -189,52 +190,23 @@ u16 strip_mp = 2;//множитель для отношения времени �
 
 void setup() {
   //инициализация массива с состояниями кнопок, в массиве должны быть все 1 если ни одна кнопка не нажата
-  for(u8 i = 0; i < (BUTTONS_QUANTITY); i++){
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
       buttons_state[i] = 1;              
   }
 { //buttons and led setup
-  pinMode(ledPin_22, OUTPUT);
-  pinMode(ledPin_23, OUTPUT);
-  pinMode(ledPin_24, OUTPUT);
-  pinMode(ledPin_25, OUTPUT);
-  pinMode(ledPin_26, OUTPUT);
-  pinMode(ledPin_27, OUTPUT);
-  pinMode(ledPin_28, OUTPUT);
-  pinMode(ledPin_29, OUTPUT);
-  pinMode(ledPin_30, OUTPUT);
-  pinMode(ledPin_31, OUTPUT);
-  pinMode(ledPin_32, OUTPUT);
-  pinMode(ledPin_33, OUTPUT);
-  pinMode(ledPin_34, OUTPUT);
-  pinMode(ledPin_35, OUTPUT);
-  pinMode(ledPin_36, OUTPUT);
-    
+ for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+      pinMode(led_pins[i], OUTPUT);                 
+  }
+      
   // initialize the pushbutton pin as an INPUT_PULLUP:
-  pinMode(buttonPin_37, INPUT_PULLUP);
-  pinMode(buttonPin_38, INPUT_PULLUP);
-  pinMode(buttonPin_39, INPUT_PULLUP);
-  pinMode(buttonPin_40, INPUT_PULLUP);
-  pinMode(buttonPin_41, INPUT_PULLUP);
-  pinMode(buttonPin_42, INPUT_PULLUP);
-  pinMode(buttonPin_43, INPUT_PULLUP);
-  pinMode(buttonPin_44, INPUT_PULLUP);
-  pinMode(buttonPin_45, INPUT_PULLUP);
-  pinMode(buttonPin_46, INPUT_PULLUP);
-  pinMode(buttonPin_47, INPUT_PULLUP);
-  pinMode(buttonPin_48, INPUT_PULLUP);
-  pinMode(buttonPin_49, INPUT_PULLUP);
-  pinMode(buttonPin_50, INPUT_PULLUP);
-  pinMode(buttonPin_51, INPUT_PULLUP);
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+      pinMode(button_pins[i], INPUT_PULLUP);                 
+  }
   
   //инициализация пинов для однобитового 7сегментного индикатора для отображения режима игры
-  pinMode( seg_1bit_pin_A, OUTPUT);
-  pinMode( seg_1bit_pin_B, OUTPUT);
-  pinMode( seg_1bit_pin_C, OUTPUT);
-  pinMode( seg_1bit_pin_D, OUTPUT);
-  pinMode( seg_1bit_pin_E, OUTPUT);
-  pinMode( seg_1bit_pin_F, OUTPUT);
-  pinMode( seg_1bit_pin_G, OUTPUT);
-  pinMode( seg_1bit_pin_DP, OUTPUT);
+    for(u8 i = 0; i < 8; i++){
+      pinMode(seg_1bit[i], OUTPUT);                 
+  }
 
   //инициализация СД ленты
   pinMode( PIN_1, OUTPUT);
@@ -291,31 +263,52 @@ void setup() {
 void loop() {
   //часть кода которую надо выполнить не зависимо от игрового режима
   menu_buttons_tick(); // опрос кнопок меню
-  if (selectBtn.isSingle()){ //перелистывание разделов меню
+  if (modeBtn.isSingle()){ //перелистывание разделов меню
     menu_state++ ;
     BRAIN_RING_init = false; //c этим надо что-то сделать так нельзя мб засунуть в стракт или в массив
     CGK_init = false;
     W_KILLER_init = false;
     SWOYA_GAME_init = false;
-    disp_1bit_7seg(0); //petrify
+    disp_1bit_7seg(0); //petrify очистить однобитный семисегмент
   }
 
-  if(resetBtn.isDouble()) rising_tone();
-  if(resetBtn.isTriple()) falling_tone();  
+  //записать состояния кнопок в светодиоды
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+    leds_state[i] = buttons_state[i];
+    if(leds_state[i] == !1) digitalWrite(led_pins[i], 1);
+//   Serial.println(leds_state[i]);
+    }
+//     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//      buttons_state[i] = 1;              
+//  }
+
+    //раз в 3 секунды обнулить состояния светодиодов и кнопок
  if(myTimer.isReady()){ 
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
       digitalWrite(led_pins[i], 0);
     }
   
-    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-    leds_state[i] = buttons_state[i];
-    if(leds_state[i] == !1) digitalWrite(led_pins[i], 1);
-  // Serial.println(leds_state[i]);
+    
+
+//    strip_1.setPixelColor(4, 0xffffff);            
+//    strip_2.setPixelColor(3, 0xffffff);    
+//    strip_3.setPixelColor(2, 0xffffff);  
+     
+ }
+//отобразить состояние ленты раз в секунду
+ if(stripTimer.isReady()){
+  strip_1.show(); 
+  strip_2.show(); 
+  strip_3.show();
+ }
+
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+  
+    if (!buttons_state[i]) {
+      display_btn_strip(i, 3);
     }
  }
 
-
-//  Serial.println(menu_state);
  //разделы меню
   switch(menu_state) {      
   case 0:
