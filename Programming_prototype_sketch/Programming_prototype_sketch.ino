@@ -3,14 +3,18 @@
 #include "GyverTimer.h" 
 #include <Adafruit_NeoPixel.h>
 #include <TM1637Display.h>
+#include <ArduinoQueue.h>
 
+#define DEBUG 
 
 #define BUTTONS_QUANTITY 15
+//#define QUEUE_SIZE_ITEMS BUTTONS_QUANTITY 
 
 //gyver button настройки для обработки кнопок меню
 #define MODE_BTN_PIN 15 //пины кнопок
 #define SELECT_BTN_PIN 16
 #define RESET_BTN_PIN 17
+#define DEBUG_BTN_PIN 14
 
 #define DEBOUNCE 50 //антидребезг
 #define HOLD_TIMEOUT 300
@@ -31,8 +35,12 @@
 #define SOUND_PIN 19
 
 //константы с игровых режимов
-#define CGK_main_time 60
+#define CGK_main_time 15
 #define CGK_sub_time 10
+
+#define BR_main_time 15
+#define BR_sub_time_10 10
+#define BR_sub_time_5 5
 
 //настройки звуковых сигналов
 #define SHORT_TONE_DUR 100
@@ -113,7 +121,8 @@ const u8 led_pins[] = {
   ledPin_13, 
   ledPin_14 
 };
-u8 leds_state[15]; //массив с состояниями светодиодов над кнопками
+u8 leds_state[BUTTONS_QUANTITY]; //массив с состояниями светодиодов над кнопками
+u8 inQueue[BUTTONS_QUANTITY]; //массив который помнит, кто есть в очереди уже
 
 //пины семисегментного индикатора для отображения номера режима
 #define seg_1bit_pin_A 6
@@ -142,6 +151,7 @@ GTimer stripTimer(MS, 1000);
 
 GTimer led_timer(MS);
 
+//3 линии адресной СД ленты
 Adafruit_NeoPixel strip_1 = Adafruit_NeoPixel(NUM_LEDS, PIN_1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip_2 = Adafruit_NeoPixel(NUM_LEDS, PIN_2, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip_3 = Adafruit_NeoPixel(NUM_LEDS, PIN_3, NEO_GRB + NEO_KHZ800);
@@ -150,9 +160,12 @@ Adafruit_NeoPixel strip_3 = Adafruit_NeoPixel(NUM_LEDS, PIN_3, NEO_GRB + NEO_KHZ
 GButton modeBtn(MODE_BTN_PIN);
 GButton selectBtn(SELECT_BTN_PIN);
 GButton resetBtn(RESET_BTN_PIN);
+GButton debugBtn(DEBUG_BTN_PIN);
+
+ArduinoQueue<u8> ButtonsQueue(BUTTONS_QUANTITY);
 
 // глобальные переменные
-int buttonState = 0;         //TODO написать за что отвечают переменные
+//int buttonState = 0;         //TODO написать за что отвечают переменные
 u8 led;
 bool state = 1;
 uint8_t tru_state;
@@ -183,9 +196,21 @@ enum {
    null_CGK,
 } CGK_states;
 
-bool CGK_init, BRAIN_RING_init, W_KILLER_init, SWOYA_GAME_init;
+enum {
+  BR_init,
+  BR_null,
+  BR_timer_50,
+  BR_timer_55,
+  BR_timer_60,
+  BR_answer,
+  BR_endgame,
+  BR_false_start,
+} BR_states;
+
+bool CGK_init_flag, BR_init_flag, W_KILLER_init, SWOYA_GAME_init;
 u16 strip_mp = 2;//множитель для отношения времени к числу зажженных сд на ленте
 
+u8 BR_state;
 
 
 void setup() {
@@ -265,28 +290,36 @@ void loop() {
   menu_buttons_tick(); // опрос кнопок меню
   if (modeBtn.isSingle()){ //перелистывание разделов меню
     menu_state++ ;
-    BRAIN_RING_init = false; //c этим надо что-то сделать так нельзя мб засунуть в стракт или в массив
-    CGK_init = false;
+    BR_init_flag = false; //c этим надо что-то сделать так нельзя мб засунуть в стракт или в массив
+    CGK_init_flag = false;
     W_KILLER_init = false;
     SWOYA_GAME_init = false;
+    BR_state = BR_init; // верменное решение пока режим не доконца прописан
     disp_1bit_7seg(0); //petrify очистить однобитный семисегмент
+    display.clear();// очистить 4 битный семисегмент
+//    #ifdef DEBUG
+//    printQueueStats();
+//    #endif
   }
 
+  if (debugBtn.isSingle()) DebugFunction();
   //записать состояния кнопок в светодиоды
-  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-    leds_state[i] = buttons_state[i];
-    if(leds_state[i] == !1) digitalWrite(led_pins[i], 1);
-//   Serial.println(leds_state[i]);
-    }
-//     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-//      buttons_state[i] = 1;              
+//  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//    leds_state[i] = buttons_state[i];
+//    if(leds_state[i] == !1) {
+////      ButtonsQueue.enqueue(i + 1); // засунуть номер кнопки сд которой азгорелся в очередь 0 нельзя ибо это знак пустой очереди
+//      digitalWrite(led_pins[i], 1);
+//    }
 //  }
 
+//засунуть в очередь нажатые кнопки
+//ReadQueue();
+
     //раз в 3 секунды обнулить состояния светодиодов и кнопок
- if(myTimer.isReady()){ 
-    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-      digitalWrite(led_pins[i], 0);
-    }
+// if(myTimer.isReady()){ 
+//    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//      digitalWrite(led_pins[i], 0);
+//    }
   
     
 
@@ -294,7 +327,7 @@ void loop() {
 //    strip_2.setPixelColor(3, 0xffffff);    
 //    strip_3.setPixelColor(2, 0xffffff);  
      
- }
+// }
 //отобразить состояние ленты раз в секунду
  if(stripTimer.isReady()){
   strip_1.show(); 
@@ -302,17 +335,18 @@ void loop() {
   strip_3.show();
  }
 
-  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-  
-    if (!buttons_state[i]) {
-      display_btn_strip(i, 3);
-    }
- }
+ 
+//отображение на ленте нажатой кнопки
+//  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//  
+//    if (!buttons_state[i]) {
+//      display_btn_strip(i, 3);
+//    }
+// }
 
  //разделы меню
   switch(menu_state) {      
   case 0:
-  
   CGK_function(); //ЧГК -0
   break;
   case 1:
@@ -329,12 +363,15 @@ void loop() {
   break;
   }
   
-   
-  if(resetBtn.isDouble()){
-    for(u8 i = 0; i < 15; i++){
-      Serial.println(buttons_state[i]);
-    }
-  }
+//  #ifdef DEBUG
+//  if(resetBtn.isDouble()){
+//    Serial.println("btn_states:");
+//    for(u8 i = 0; i < 15; i++){
+//      Serial.print(buttons_state[i]);
+//    }
+//    Serial.println(" ");
+//  }
+//  #endif
   
   if (interrupt_state == 1){ //выполнение действий по прерыванию
 

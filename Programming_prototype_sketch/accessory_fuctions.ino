@@ -11,6 +11,7 @@ void menu_buttons_tick(){ //опрос кнопок меню
    modeBtn.tick(); 
    selectBtn.tick();
    resetBtn.tick();
+   debugBtn.tick();
 }
 
 void final_countdown(u16 time_var){ //число секунд, которое надо отобразить на 4 битовом 7сегм
@@ -30,7 +31,6 @@ void final_countdown(u16 time_var){ //число секунд, которое н
       display.showNumberDec(secs_var, false, 1,3);
     }
     else display.showNumberDec(secs_var, false, 2,2);
-//  }
   }
 
 
@@ -127,4 +127,66 @@ static u32 color;
         }
       }
     }
+}
+
+//????
+//u8 AllowQueue mb flag
+//u8 StopQueue
+//u8 PetrifyQueue +
+//u8 ReadQueue ?? что оно делает
+
+void printQueueStats() {
+  
+  Serial.println("Items in queue now:      " + String(ButtonsQueue.item_count()));
+  Serial.println("Queue actual max items:  " + String(ButtonsQueue.maxQueueSize()));
+  Serial.println("Queue empty:  " + String(ButtonsQueue.isEmpty()));
+  Serial.println("Queue full:  " + String(ButtonsQueue.isFull()));
+//  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//    Serial.print( ButtonsQueue.getHead());
+//    ButtonsQueue.dequeue();
+//  }
+//  Serial.println();
+//    PetrifyQueue();
+}
+
+void PetrifyQueue(){
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//    #ifdef DEBUG
+//    Serial.print( ButtonsQueue.getHead());
+//    #endif
+    ButtonsQueue.dequeue();
+    inQueue[i] = 0;
+  }
+//  #ifdef DEBUG
+//  Serial.println(" <Q");
+//  #endif
+}
+
+void ReadQueue(){   //debug
+  
+  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+    if ((buttons_state[i] == 0) && (inQueue[i] == 0)){
+    inQueue[i] = 1;
+    ButtonsQueue.enqueue(i + 1); 
+    #ifdef DEBUG
+    Serial.print("item queued: ");
+    Serial.println(i + 1);
+    #endif
+  }
+}
+  
+}
+
+void DebugFunction(){
+    printQueueStats();
+    Serial.println("btns: ");
+    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+      Serial.print(buttons_state[i]);
+    }
+    Serial.println();
+    Serial.println("leds: ");
+    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+      Serial.print(leds_state[i]);
+    }
+    Serial.println();
 }
