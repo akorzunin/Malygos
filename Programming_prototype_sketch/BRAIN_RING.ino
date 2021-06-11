@@ -4,7 +4,17 @@ void BRAIN_RING_function(){ //ЧГК -0
   static u8 BR_current_answer_time;
   static u8 BR_answer_time[] = {15, 20}; //возможные варианты времени ответа
   static bool BR_false_start_flag;
-
+  // static u8 THE_FINAL_COUNTDOWN 
+  static enum {
+    BR_init,
+    BR_null,
+    BR_timer_50,
+    BR_timer_55,
+    BR_timer_60,
+    BR_answer,
+    BR_endgame,
+    BR_false_start,
+  } BR_states;
 
   if (!BR_init_flag) BR_state = BR_init;
   if (resetBtn.isSingle()){

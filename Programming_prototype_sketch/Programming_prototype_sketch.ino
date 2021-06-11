@@ -45,15 +45,10 @@ uint32_t tone_timer;
 u8 THE_FINAL_COUNTDOWN;
 u8 CGK_state;
 
-enum {
-   start_CGK,
-   CGK_50,
-   CGK_10,
-   end_CGK,
-   null_CGK,
-} CGK_states;
 
-enum {
+
+
+ enum {
   BR_init,
   BR_null,
   BR_timer_50,
@@ -63,6 +58,7 @@ enum {
   BR_endgame,
   BR_false_start,
 } BR_states;
+
 
 bool CGK_init_flag, BR_init_flag, W_KILLER_init, SWOYA_GAME_init;
 u16 strip_mp = 2;//множитель для отношения времени к числу зажженных сд на ленте
@@ -75,7 +71,7 @@ void setup() {
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
         buttons_state[i] = 1;              
     }
-  { //buttons and led setup
+   //buttons and led setup
    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
         pinMode(led_pins[i], OUTPUT);                 
     }
@@ -96,7 +92,7 @@ void setup() {
     pinMode( PIN_2, OUTPUT);
     pinMode( PIN_3, OUTPUT);
     pinMode( PIN_4, OUTPUT);
-  }
+  
     //4 ьитовый 7сегм дисплей 
     display.setBrightness(0x0f);
     uint8_t data[] = { 0x0, 0x0, 0x0, 0x0 };
@@ -106,7 +102,7 @@ void setup() {
 
     Serial.begin(9600);
 
-    { //led strip setup
+    //led strip setup
     strip_1.begin();
     strip_1.setBrightness(LED_STR_BR);    // яркость, от 0 до 255
     strip_1.clear();                          // очистить
@@ -126,26 +122,26 @@ void setup() {
     strip_4.setBrightness(LED_STR_BR);    // яркость, от 0 до 255
     strip_4.clear();                          // очистить
     strip_4.show();
-    }
+    
 
     //прерывание по которыму триггерится опрос кнопок
     pinMode( INTERRUPT_3, INPUT);
     attachInterrupt(3, buttonTick, RISING); //buttonTick это функция прерывания никто не знает почему там должен быть 0 но иначе не работает 0/3
-  {
+  
     //кнопки меню
   //пока что не работает надо либо настроить либо убрать совсем
-  //  modeBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-  //  modeBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-  //  modeBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+   modeBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
+   // modeBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
+   // modeBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
   //
-  //  selectBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-  //  selectBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-  //  selectBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+   selectBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
+   // selectBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
+   // selectBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
   ////
-  //  resetBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-  //  resetBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-  //  resetBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
-  }
+   resetBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
+   // resetBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
+   // resetBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+  
       test_timer = millis();
       led_timer.setTimeout(1500);
       strip_mp = CGK_main_time/STRIP_LED_NUM;
@@ -160,7 +156,7 @@ void loop() {
     CGK_init_flag = false;
     W_KILLER_init = false;
     SWOYA_GAME_init = false;
-    BR_state = BR_init; // верменное решение пока режим не доконца прописан
+    // BR_state = BR_init; // верменное решение пока режим не доконца прописан
     disp_1bit_7seg(0); //petrify 1 bit ss
     display.clear();// очистить 4 битный семисегмент
 

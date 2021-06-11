@@ -34,12 +34,14 @@
 //константы с игровых режимов
 #define CGK_main_time 60
 #define CGK_sub_time 10
+#define CGK_sub_sub_time 5
 
 #define BR_main_time 15
 #define BR_sub_time_10 10
 #define BR_sub_time_5 5
 
 //настройки звуковых сигналов
+#define SHORT_SHORT_TONE_DUR 100
 #define SHORT_TONE_DUR 300
 #define LONG_TONE_DUR 1000
 #define TONE_FREQ 500

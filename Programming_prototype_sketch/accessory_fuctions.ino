@@ -108,24 +108,26 @@ if(val == 5){
 
 void short_tone(){   
   tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
+  #ifdef DEBUG
+  Serial.println("short_tone");
+  #endif
+
+}
+
+void short_short_tone(){
+  tone(SOUND_PIN, TONE_FREQ, SHORT_SHORT_TONE_DUR);
+  #ifdef DEBUG
+  Serial.println("short_short_tone");
+  #endif
 }
 
 void long_tone(){   
   tone(SOUND_PIN, TONE_FREQ, LONG_TONE_DUR);
+  #ifdef DEBUG
+  Serial.println("long_tone");
+  #endif
 }
 
-//TODO доработать либо обойтись двумя верхними функциями (short и long)
-void rising_tone(){   
-  tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
-  tone(SOUND_PIN, 2*TONE_FREQ, SHORT_TONE_DUR);
-  tone(SOUND_PIN, 3*TONE_FREQ, SHORT_TONE_DUR);
-}
-
-void falling_tone(){   
-  tone(SOUND_PIN, 3*TONE_FREQ, SHORT_TONE_DUR);
-  tone(SOUND_PIN, 2*TONE_FREQ, SHORT_TONE_DUR);
-  tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
-}
 
 void display_btn_strip(u8 btn_number, u8 height){
 static u32 color;
