@@ -14,7 +14,7 @@ void CGK_function(){ //ЧГК -0
   if (!CGK_init_flag) CGK_state = CGK_init;
   if (resetBtn.isSingle()){
     CGK_state = end_CGK;  //ресет режима не зависимо от состояния
-    ButtonsQueue.enqueue(1); //debug
+    ButtonsQueue.enqueue(1); //debug TODO remove mb
   }
     
   switch(CGK_state){
@@ -22,6 +22,17 @@ void CGK_function(){ //ЧГК -0
         disp_1bit_7seg(1);  //вывод 1
         #ifdef DEBUG
         Serial.println("CGK");
+        // тестирование работы схемы
+//        display.showNumberDec(8888, false, 4, 0);
+        //выыод 4 на однобитный СС
+//        disp_1bit_7seg(0);
+//        disp_1bit_7seg(2);
+      
+        
+        //пожигание СД на 0-й кнопке
+        for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+          digitalWrite(led_pins[i], 1);
+        }
         #endif
         CGK_init_flag = true; //это значит что инициализация проведена
         
@@ -72,6 +83,7 @@ void CGK_function(){ //ЧГК -0
           #endif
           CGK_state = end_CGK;
         }
+        if(stripTimer.isReady()) short_tone();
         }
     
         break;

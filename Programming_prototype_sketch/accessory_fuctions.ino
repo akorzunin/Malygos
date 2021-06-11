@@ -38,52 +38,73 @@ void led_strip_display(u16 led_val, u32 led_color){ //функция вывод�
     strip_1.clear();
     strip_2.clear();
     strip_3.clear();
+    strip_4.clear();
+    
   if(led_val != 0){
   for (u8 i = 0; i < led_val; i++ ) {    
     strip_1.setPixelColor(i, led_color);            
     strip_2.setPixelColor(i, led_color);    
     strip_3.setPixelColor(i, led_color);     
+    strip_4.setPixelColor(i, led_color);     
     }    
   }
   strip_1.show(); 
   strip_2.show(); 
   strip_3.show(); 
+  strip_4.show(); 
 }
 void disp_1bit_7seg(u8 val){    //функция которая отвечает за однобитный семисегмент
 if(val == 0){
   for(u8 i = 0; i < 8; i++){
-    digitalWrite(seg_1bit[i] , 0);
+    digitalWrite(seg_1bit[i] , ONEBIT_LOW);
   }
 }
 
 if(val == 1){
-  digitalWrite(seg_1bit[1] , 1);
-  digitalWrite(seg_1bit[2] , 1);  
+  digitalWrite(seg_1bit[1] , ONEBIT_HIGH);
+  digitalWrite(seg_1bit[2] , ONEBIT_HIGH);  
+
+  
 }
 
 if(val == 2){
-  digitalWrite(seg_1bit_pin_A , 1);
-  digitalWrite(seg_1bit_pin_B , 1);
-  digitalWrite(seg_1bit_pin_G , 1);
-  digitalWrite(seg_1bit_pin_E , 1);
-  digitalWrite(seg_1bit_pin_D , 1);
+  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH); //ABGED
+  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_E , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
 }
 
 if(val == 3){
-  digitalWrite(seg_1bit_pin_A , 1);
-  digitalWrite(seg_1bit_pin_B , 1);
-  digitalWrite(seg_1bit_pin_G , 1);
-  digitalWrite(seg_1bit_pin_C , 1);
-  digitalWrite(seg_1bit_pin_D , 1);
+  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
 }
 
 if(val == 4){
-  digitalWrite(seg_1bit_pin_F , 1);
-  digitalWrite(seg_1bit_pin_B , 1);
-  digitalWrite(seg_1bit_pin_G , 1);
-  digitalWrite(seg_1bit_pin_C , 1);
+  digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+}
+
+if(val == 5){
+  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
+  //afgcd
 }
 }
+//if(val == 8){
+//  for(u8 i = 0; i < 8; i++){
+//    digitalWrite(seg_1bit[i] , ONEBIT_HIGH);
+//  } 
+//}
+
 
 void short_tone(){   
   tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
