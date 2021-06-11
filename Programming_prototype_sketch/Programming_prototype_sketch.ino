@@ -35,7 +35,7 @@ TM1637Display display(CLK, DIO);
 //Константя для прерываний
 volatile bool interrupt_state = 0;
 
-u8 menu_state;
+u8 menu_state = 4;
 
 //таймеры
 uint32_t test_timer;
@@ -45,7 +45,7 @@ uint32_t tone_timer;
 u8 THE_FINAL_COUNTDOWN;
 u8 CGK_state;
 
-
+u8 btn_buffer[BUTTONS_QUANTITY] = {};
 
 
  enum {
@@ -70,6 +70,10 @@ void setup() {
     //инициализация массива с состояниями кнопок, в массиве должны быть все 1 если ни одна кнопка не нажата
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
         buttons_state[i] = 1;              
+    }
+    // инициализация буфера нажатых кнопок
+    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+        btn_buffer[i] = 1;              
     }
    //buttons and led setup
    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
@@ -141,7 +145,7 @@ void setup() {
    resetBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
    // resetBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
    // resetBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
-  
+  debugBtn.setDebounce(DEBOUNCE);
       test_timer = millis();
       led_timer.setTimeout(1500);
       strip_mp = CGK_main_time/STRIP_LED_NUM;

@@ -2,10 +2,17 @@
 
 void buttonTick(){ //функция прерыввания по опросу кнопок игроков
   interrupt_state = 1;
+  #ifdef DEBUG
+  Serial.println("interrupt");
+  #endif
     for(u8 i = 0; i < (BUTTONS_QUANTITY); i++){
-      buttons_state[i] = digitalRead(button_pins[i]);               
+
+      buttons_state[i] = !digitalRead(button_pins[i]);               
+    
     } 
+  buttons_state[6] = 1; //временный костыль против нерабочей кнопки
 }
+
 
 void menu_buttons_tick(){ //опрос кнопок меню
    modeBtn.tick(); 
@@ -174,15 +181,15 @@ void printQueueStats() {
 
 void PetrifyQueue(){
   for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-//    #ifdef DEBUG
-//    Serial.print( ButtonsQueue.getHead());
-//    #endif
+
     ButtonsQueue.dequeue();
-    inQueue[i] = 0;
+    btn_buffer[i] = 1;
+    buttons_state[i] = 1;
   }
-//  #ifdef DEBUG
-//  Serial.println(" <Q");
-//  #endif
+
+  #ifdef DEBUG
+  Serial.println( "Q petrified");
+  #endif
 }
 
 void ReadQueue(){   //debug

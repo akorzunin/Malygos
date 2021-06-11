@@ -14,14 +14,40 @@ void test_mode(){
 
 
 	//testing mode
-	if (myTimer.isReady()) Serial.println(test_state); //view current state
-	if (debugBtn.isSingle()) test_state++; //listing modes
-	if (resetBtn.isSingle()) test_state = TEST_INIT; //reset if sth goes wrong
+	// if (myTimer.isReady()) Serial.println(test_state); //view current state
+	if (debugBtn.isSingle()) Serial.println("test_state"); //listing modes
+	// if (resetBtn.isSingle()) test_state = TEST_INIT; //reset if sth goes wrong
 
 	switch(test_state)
 	{
 		case TEST_INIT:
 			disp_1bit_7seg(5);
+			if(selectBtn.isSingle()){
+				for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+			
+// buttons_state массив с состояниями кнопок
+					Serial.print(btn_buffer[i]);	
+
+				}	
+				Serial.println("#");
+			}
+			//процедура заполнения очереди
+			for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+				if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){
+					//занести в буфер и в очередь
+					btn_buffer[i] = 0;
+					ButtonsQueue.enqueue(i + 1);
+				}
+			}
+			if(selectBtn.isDouble()) printQueueStats() ;
+			if (resetBtn.isSingle()){
+				//достать из очереди по одному
+				Serial.println("Removed:" + String(ButtonsQueue.dequeue()));
+				printQueueStats();
+			}
+			if(resetBtn.isDouble()) PetrifyQueue();
+
+
       break;
 		case SOUND_TEST:
       
@@ -32,9 +58,7 @@ void test_mode(){
 			// tone(SOUND_PIN, TONE_FREQ, SHORT_TONE_DUR);
 
 			
-		}	
-
-		if(selectBtn.isHold()) noTone(SOUND_PIN);
+		}
 				
 		break;
 

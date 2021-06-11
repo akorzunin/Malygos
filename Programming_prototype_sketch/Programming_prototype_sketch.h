@@ -1,6 +1,6 @@
 #define DEBUG 
 
-#define BUTTONS_QUANTITY 15
+#define BUTTONS_QUANTITY 14 //кнопка 7 на пине 44 не работает
 //#define QUEUE_SIZE_ITEMS BUTTONS_QUANTITY 
 
 //gyver button настройки для обработки кнопок меню
@@ -84,7 +84,7 @@ const u8 button_pins[]{
   buttonPin_14 
 };
 
-volatile u8 buttons_state[15]; // массив который хранит информацию собранную после опроса кнопок по прерыванию
+volatile u8 buttons_state[BUTTONS_QUANTITY]; // массив который хранит информацию собранную после опроса кнопок по прерыванию
 
 //светодиодные лампы над кнопками
 #define ledPin_0 22
