@@ -10,7 +10,7 @@ void buttonTick(){ //функция прерыввания по опросу к�
       buttons_state[i] = !digitalRead(button_pins[i]);               
     
     } 
-  buttons_state[6] = 1; //временный костыль против нерабочей кнопки
+  // buttons_state[6] = 1; //временный костыль против нерабочей кнопки
 }
 
 
@@ -61,50 +61,50 @@ void led_strip_display(u16 led_val, u32 led_color){ //функция вывод�
   strip_4.show(); 
 }
 void disp_1bit_7seg(u8 val){    //функция которая отвечает за однобитный семисегмент
-if(val == 0){
-  for(u8 i = 0; i < 8; i++){
-    digitalWrite(seg_1bit[i] , ONEBIT_LOW);
+  if(val == 0){
+    for(u8 i = 0; i < 8; i++){
+      digitalWrite(seg_1bit[i] , ONEBIT_LOW);
+    }
   }
-}
 
-if(val == 1){
-  digitalWrite(seg_1bit[1] , ONEBIT_HIGH);
-  digitalWrite(seg_1bit[2] , ONEBIT_HIGH);  
+  if(val == 1){
+    digitalWrite(seg_1bit[1] , ONEBIT_HIGH);
+    digitalWrite(seg_1bit[2] , ONEBIT_HIGH);  
 
-  
-}
+    
+  }
 
-if(val == 2){
-  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH); //ABGED
-  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_E , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
-}
+  if(val == 2){
+    digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH); //ABGED
+    digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_E , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
+  }
 
-if(val == 3){
-  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
-}
+  if(val == 3){
+    digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
+  }
 
-if(val == 4){
-  digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
-}
+  if(val == 4){
+    digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_B , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+  }
 
-if(val == 5){
-  digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
-  digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
-  //afgcd
-}
+  if(val == 5){
+    digitalWrite(seg_1bit_pin_A , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_F , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_G , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_C , ONEBIT_HIGH);
+    digitalWrite(seg_1bit_pin_D , ONEBIT_HIGH);
+    //afgcd
+  }
 }
 //if(val == 8){
 //  for(u8 i = 0; i < 8; i++){
@@ -136,7 +136,7 @@ void long_tone(){
 }
 
 
-void display_btn_strip(u8 btn_number, u8 height){
+void display_btn_strip(u8 btn_number, u8 height=LED_STRIP_ROWS){
 static u32 color;
   if ((btn_number%5) == 0) color = 0xff0000; //мб прописать формулу в ИФе
       else if (btn_number%5 == 1) color = 0xffff00;
@@ -144,6 +144,16 @@ static u32 color;
           else if (btn_number%5 == 3) color = 0x00ffff;
             else if (btn_number%5 == 4) color = 0x0000ff;
               else color = 0xffffff;
+    if ( height == 0){
+        strip_1.setPixelColor(2*btn_number, 0x000000);
+        strip_1.setPixelColor(2*btn_number + 1, 0x000000);
+        strip_2.setPixelColor(2*btn_number, 0x000000);
+        strip_2.setPixelColor(2*btn_number + 1, 0x000000);
+        strip_3.setPixelColor(2*btn_number, 0x000000);
+        strip_3.setPixelColor(2*btn_number + 1, 0x000000);
+        strip_4.setPixelColor(2*btn_number, 0x000000);
+        strip_4.setPixelColor(2*btn_number + 1, 0x000000);
+    }          
     if ( height >= 1){
     strip_1.setPixelColor(2*btn_number, color);
     strip_1.setPixelColor(2*btn_number + 1, color);
@@ -153,9 +163,13 @@ static u32 color;
         if ( height >= 3){
         strip_3.setPixelColor(2*btn_number, color);
         strip_3.setPixelColor(2*btn_number + 1, color);
+          if ( height >= 4){
+          strip_4.setPixelColor(2*btn_number, color);
+          strip_4.setPixelColor(2*btn_number + 1, color);
         //else ; надо ли бобавлять исключения для 0 высоты чтобы очистить столбец или сделать это по другому, но зачем если есть прекрасный led_strip_display(0, 0);
+          }
         }
-      }
+      } 
     }
 }
 
@@ -219,4 +233,62 @@ void DebugFunction(){
       Serial.print(leds_state[i]);
     }
     Serial.println();
+}
+
+//функция которая принимает true/false чтоб начать 
+//минание, потом принимает номер кнопки которойнадо начать мигать
+
+void blink_btn_strip(u8 btn_number, bool state=false){
+  if(state){
+    //enable blinking      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+    blink_buffer[btn_number] = 1;    
+
+  }
+  else{
+    //disable blinking
+    blink_buffer[btn_number] = 0;
+    static_btn_strip(btn_number, false); 
+    static_lamp(btn_number, true);   
+  }
+}
+
+//same for static burning
+void static_btn_strip(u8 btn_number, bool state){
+  if(state){
+    //enable burning
+    display_btn_strip(btn_number); //height 4
+  }
+
+  else{
+    //disable blinking
+    display_btn_strip(btn_number, 0); //height 0
+  }
+}
+
+
+// void blink_lamp(u8 btn_number, bool state=false){
+//   if(state){
+//     //enable blinking      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+//     blink_buffer[btn_number] = 1;    
+
+//   }
+//   else{
+//     //disable blinking
+//     blink_buffer[btn_number] = 0;
+//     static_btn_strip(btn_number, false);    
+//   }
+// }
+
+
+
+void static_lamp(u8 btn_number, bool state){ //bool vale inverted for sync
+  if(!state){
+  //enable burning
+    digitalWrite(led_pins[btn_number], 1); 
+  }
+
+  else{
+    //disable blinking
+    digitalWrite(led_pins[btn_number], 0); 
+  }
 }

@@ -31,17 +31,29 @@ void test_mode(){
 				}	
 				Serial.println("#");
 			}
+
 			//процедура заполнения очереди
 			for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
 				if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){
 					//занести в буфер и в очередь
 					btn_buffer[i] = 0;
 					ButtonsQueue.enqueue(i + 1);
+					//for static
+					// static_btn_strip(i, true);
+					//for blinking
+					blink_btn_strip(i, true);
+
+
 				}
 			}
 			if(selectBtn.isDouble()) printQueueStats() ;
 			if (resetBtn.isSingle()){
+
 				//достать из очереди по одному
+				//for static
+				// static_btn_strip(ButtonsQueue.getHead() - 1, false);
+				//for blink
+				blink_btn_strip(ButtonsQueue.getHead() - 1, false);
 				Serial.println("Removed:" + String(ButtonsQueue.dequeue()));
 				printQueueStats();
 			}

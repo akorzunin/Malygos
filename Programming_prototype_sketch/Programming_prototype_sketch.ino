@@ -46,6 +46,7 @@ u8 THE_FINAL_COUNTDOWN;
 u8 CGK_state;
 
 u8 btn_buffer[BUTTONS_QUANTITY] = {};
+u8 blink_buffer[BUTTONS_QUANTITY] = {};
 
 
  enum {
@@ -66,6 +67,8 @@ u16 strip_mp = 2;//множитель для отношения времени �
 u8 BR_state;
 u8 test_state;
 
+bool strip_blink_flag;
+
 void setup() {
     //инициализация массива с состояниями кнопок, в массиве должны быть все 1 если ни одна кнопка не нажата
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
@@ -84,6 +87,7 @@ void setup() {
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
         pinMode(button_pins[i], INPUT_PULLUP);                 
     }
+    // pinMode(43, INPUT);
     
     //инициализация пинов для однобитового 7сегментного индикатора для отображения режима игры
       for(u8 i = 0; i < 8; i++){
@@ -169,12 +173,35 @@ void loop() {
   // if (debugBtn.isSingle()) DebugFunction();
  
 //отобразить состояние ленты раз в секунду TODO mb delete after
- if(stripTimer.isReady()){
-  strip_1.show(); 
-  strip_2.show(); 
-  strip_3.show();
-  strip_4.show();
- }
+  if(stripTimer.isReady()){  
+    strip_1.show(); 
+    strip_2.show(); 
+    strip_3.show();
+    strip_4.show();
+    //мб тут описать как вывод раз в секунду мигания илихз
+    // Serial.println("PEPE");
+    strip_blink_flag = !strip_blink_flag;
+    if(strip_blink_flag){
+      //enable all blinking buttons
+      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+      {
+      if (blink_buffer[i]) {
+        static_btn_strip(i, true);
+        static_lamp(i, true);
+      }
+      }
+    }
+    else{
+      //disable all blinking buttons
+      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+      {
+      if (blink_buffer[i]) {
+        static_btn_strip(i, false);
+        static_lamp(i, false);
+      }
+      }
+    }
+  }
 
  
 //отображение на ленте нажатой кнопки
@@ -215,3 +242,7 @@ void loop() {
     interrupt_state = 0;
   }
 }
+
+
+
+

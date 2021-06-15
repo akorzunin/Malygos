@@ -1,6 +1,6 @@
 #define DEBUG 
 
-#define BUTTONS_QUANTITY 14 //кнопка 7 на пине 44 не работает
+#define BUTTONS_QUANTITY 15 //кнопка 7 на пине 44 не работает
 //#define QUEUE_SIZE_ITEMS BUTTONS_QUANTITY 
 
 //gyver button настройки для обработки кнопок меню
@@ -147,3 +147,5 @@ const char seg_1bit[] = {
 //common anode/cathode for 1bit ss
 #define ONEBIT_LOW 1
 #define ONEBIT_HIGH 0
+
+#define LED_STRIP_ROWS 4
