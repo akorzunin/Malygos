@@ -35,7 +35,7 @@ TM1637Display display(CLK, DIO);
 //Константя для прерываний
 volatile bool interrupt_state = 0;
 
-u8 menu_state = 4;
+u8 menu_state = 1;
 
 //таймеры
 uint32_t test_timer;
@@ -144,7 +144,7 @@ void setup() {
   //
    selectBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
    // selectBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-   // selectBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+   selectBtn.setClickTimeout(SELECT_CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
   ////
    resetBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
    // resetBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
@@ -174,10 +174,7 @@ void loop() {
  
 //отобразить состояние ленты раз в секунду TODO mb delete after
   if(stripTimer.isReady()){  
-    strip_1.show(); 
-    strip_2.show(); 
-    strip_3.show();
-    strip_4.show();
+    led_strip_show();
     //мб тут описать как вывод раз в секунду мигания илихз
     // Serial.println("PEPE");
     strip_blink_flag = !strip_blink_flag;

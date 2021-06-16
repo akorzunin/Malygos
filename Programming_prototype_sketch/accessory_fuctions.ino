@@ -206,20 +206,29 @@ void PetrifyQueue(){
   #endif
 }
 
-void ReadQueue(){   //debug
-  
-  for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-    if ((buttons_state[i] == 0) && (inQueue[i] == 0)){
-    inQueue[i] = 1;
-    ButtonsQueue.enqueue(i + 1); 
-    #ifdef DEBUG
-    Serial.print("item queued: ");
-    Serial.println(i + 1);
-    #endif
+void ReadQueueToStatic(){   //debug
+    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+    if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){
+      //занести в буфер и в очередь
+      btn_buffer[i] = 0;
+      ButtonsQueue.enqueue(i + 1);
+      led_strip_display(0,0);
+      static_btn_strip(i, true);
+      static_lamp(i, true);
+    }
   }
+  // for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+  //   if ((buttons_state[i] == 0) && (inQueue[i] == 0)){
+  //   inQueue[i] = 1;
+  //   ButtonsQueue.enqueue(i + 1); 
+  //   #ifdef DEBUG
+  //   Serial.print("item queued: ");
+  //   Serial.println(i + 1);
+  //   #endif
+  // }
 }
   
-}
+
 
 void DebugFunction(){
     printQueueStats();
@@ -238,7 +247,7 @@ void DebugFunction(){
 //функция которая принимает true/false чтоб начать 
 //минание, потом принимает номер кнопки которойнадо начать мигать
 
-void blink_btn_strip(u8 btn_number, bool state=false){
+void blink_btn_strip(u8 btn_number, bool state){
   if(state){
     //enable blinking      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
     blink_buffer[btn_number] = 1;    
@@ -291,4 +300,11 @@ void static_lamp(u8 btn_number, bool state){ //bool vale inverted for sync
     //disable blinking
     digitalWrite(led_pins[btn_number], 0); 
   }
+}
+
+void led_strip_show(){
+    strip_1.show(); 
+    strip_2.show(); 
+    strip_3.show();
+    strip_4.show();
 }

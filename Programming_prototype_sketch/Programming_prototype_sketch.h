@@ -9,9 +9,10 @@
 #define RESET_BTN_PIN 17
 #define DEBUG_BTN_PIN 14
 
-#define DEBOUNCE 50 //антидребезг
-#define HOLD_TIMEOUT 300
-#define CLICK_TIMEOUT 600
+#define DEBOUNCE 10 //антидребезг
+#define HOLD_TIMEOUT 500
+#define CLICK_TIMEOUT 300
+#define SELECT_CLICK_TIMEOUT 50
 
 
 //настройки адресной светодиодной ленты
@@ -22,8 +23,9 @@
 
 #define LED_STR_BR 50
 
-#define NUM_LEDS 30   // число диодо
+#define NUM_LEDS 30   // число диодов в ленте
 #define STRIP_LED_NUM 15 //чило секций на ленте(должно соответствовать числу кнопок)
+#define LED_STRIP_ROWS 4
 
 #define INTERRUPT_3 21 //прерывание кнопок просто настраиваем этот пин на чтение оно не на что особо не влияет потому что в функции стоит 0 пин но работает пин 2
 
@@ -36,7 +38,7 @@
 #define CGK_sub_time 10
 #define CGK_sub_sub_time 5
 
-#define BR_main_time 15
+#define BR_main_time 60
 #define BR_sub_time_10 10
 #define BR_sub_time_5 5
 
@@ -148,4 +150,3 @@ const char seg_1bit[] = {
 #define ONEBIT_LOW 1
 #define ONEBIT_HIGH 0
 
-#define LED_STRIP_ROWS 4
