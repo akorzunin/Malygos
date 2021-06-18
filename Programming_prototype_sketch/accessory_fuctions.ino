@@ -199,6 +199,8 @@ void PetrifyQueue(){
     ButtonsQueue.dequeue();
     btn_buffer[i] = 1;
     buttons_state[i] = 1;
+    //очистка ламп игроков
+    static_lamp(i, !false);
   }
 
   #ifdef DEBUG
@@ -214,21 +216,30 @@ void ReadQueueToStatic(){   //debug
       ButtonsQueue.enqueue(i + 1);
       led_strip_display(0,0);
       static_btn_strip(i, true);
-      static_lamp(i, true);
+      static_lamp(i, !true);
     }
   }
-  // for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-  //   if ((buttons_state[i] == 0) && (inQueue[i] == 0)){
-  //   inQueue[i] = 1;
-  //   ButtonsQueue.enqueue(i + 1); 
-  //   #ifdef DEBUG
-  //   Serial.print("item queued: ");
-  //   Serial.println(i + 1);
-  //   #endif
-  // }
 }
-  
 
+void ReadQueue(){   //debug
+    for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+    if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){
+      //занести в буфер и в очередь
+      btn_buffer[i] = 0;
+      ButtonsQueue.enqueue(i + 1);
+    }
+  }
+}
+
+  
+  // функция очищает все лампы игроков
+void clear_lamps(){ 
+  for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+  {
+    static_lamp(i, !false);
+
+  }
+}
 
 void DebugFunction(){
     printQueueStats();
@@ -237,9 +248,9 @@ void DebugFunction(){
       Serial.print(buttons_state[i]);
     }
     Serial.println();
-    Serial.println("leds: ");
+    Serial.println("blink_buffer: ");
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-      Serial.print(leds_state[i]);
+      Serial.print(blink_buffer[i]);
     }
     Serial.println();
 }
@@ -249,7 +260,7 @@ void DebugFunction(){
 
 void blink_btn_strip(u8 btn_number, bool state){
   if(state){
-    //enable blinking      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+    //enable blinking      
     blink_buffer[btn_number] = 1;    
 
   }
@@ -308,3 +319,21 @@ void led_strip_show(){
     strip_3.show();
     strip_4.show();
 }
+
+
+// ReadQueueToBlink();
+// void ReadQueueToBlink_WS(){
+//   for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
+//     if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){
+//       //занести в буфер и в очередь
+//       btn_buffer[i] = 0;
+//       ButtonsQueue.enqueue(i + 1);
+//       WS_buffer[ButtonsQueue.getHead() - 1] = 2;
+
+//       // led_strip_display(0,0);
+
+//       // blink_btn_strip(i, true);
+//       // static_lamp(i, !true);
+//     }
+//   }
+// }

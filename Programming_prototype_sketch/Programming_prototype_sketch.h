@@ -9,10 +9,10 @@
 #define RESET_BTN_PIN 17
 #define DEBUG_BTN_PIN 14
 
-#define DEBOUNCE 10 //антидребезг
+#define DEBOUNCE 1 //антидребезг
 #define HOLD_TIMEOUT 500
 #define CLICK_TIMEOUT 300
-#define SELECT_CLICK_TIMEOUT 50
+#define SELECT_CLICK_TIMEOUT 1
 
 
 //настройки адресной светодиодной ленты
@@ -41,6 +41,8 @@
 #define BR_main_time 60
 #define BR_sub_time_10 10
 #define BR_sub_time_5 5
+
+#define WS_REFRESH_TIME 300
 
 //настройки звуковых сигналов
 #define SHORT_SHORT_TONE_DUR 100

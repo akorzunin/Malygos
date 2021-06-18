@@ -1,4 +1,4 @@
-//
+
 void test_mode(){
 	static enum 
 	{

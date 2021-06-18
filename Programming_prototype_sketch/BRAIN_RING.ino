@@ -4,6 +4,7 @@ void BRAIN_RING_function(){ //ЧГК -0
   static u8 BR_current_answer_time;
   static u8 BR_answer_time[] = {20, 15}; //возможные варианты времени ответа
   static bool BR_false_start_flag = true;
+  static uint32_t speed_timer;
   // static u8 THE_FINAL_COUNTDOWN 
   static enum {
     BR_init,
@@ -15,12 +16,13 @@ void BRAIN_RING_function(){ //ЧГК -0
     BR_answer_20_15,
     BR_answer_5,
     BR_endgame,
-    BR_false_start,
+    BR_FS_answer_20_15,
   } BR_states;
 
   if (!BR_init_flag) BR_state = BR_init;
   if (resetBtn.isSingle()){
     BR_state = BR_endgame;
+    selectBtn.isSingle(); //очистить очередь нажатия кнопки селект, чтоб не было ложных срабатываний
     #ifdef DEBUG
     Serial.println("BR_endgame");
     #endif
@@ -34,10 +36,10 @@ void BRAIN_RING_function(){ //ЧГК -0
       led_strip_display(0,0); //очистить ленту
       disp_1bit_7seg(2);
       BR_init_flag = true; //если перещлт на этот режим с другой страницы то флаг обнулится, те все что до етого написано будет выполнено при смене режима
-      display.showNumberDec(BR_answer_time[BR_current_answer_time], false, 2,2);
+      // display.showNumberDec(BR_answer_time[BR_current_answer_time], false, 2,2);
+      display.clear();
       THE_FINAL_COUNTDOWN = BR_main_time; // !!!одна минута на основной цикл если никто не нажмет на кнопку
       PetrifyQueue();
-      
       BR_state = BR_null;
       #ifdef DEBUG
       Serial.println("BR_null");
@@ -61,16 +63,16 @@ void BRAIN_RING_function(){ //ЧГК -0
           ReadQueueToStatic();  //отследить нажание кнопки и обработать
           if(!ButtonsQueue.isEmpty()){ //если очередь НЕ пуста то перейти в БР ответ
             THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time]; //set time to answer
-            BR_state = BR_answer_20_15;
-            short_tone();
+            BR_state = BR_answer;
+            long_tone(); //falsestart
           }
         }
-        else {
-        // ReadQueueToStatic();  //отследить нажание кнопки и обработать
-        }
+
         //запуск режима
         if (selectBtn.isSingle()) {
           BR_state = BR_timer_50;
+          speed_timer = millis(); //записать время начала режима
+          short_short_tone(); //regular start
           #ifdef DEBUG
           Serial.println("BR_timer_50");
           #endif
@@ -83,69 +85,57 @@ void BRAIN_RING_function(){ //ЧГК -0
       if(!ButtonsQueue.isEmpty()){ //если очередь НЕ пуста то перейти в БР ответ
           BR_state = BR_answer;
           short_tone();
+          speed_timer =  millis() - speed_timer;
+          display.showNumberDec(speed_timer, false);
+          THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time]; //set time to answer
+          #ifdef DEBUG
+          Serial.println(speed_timer);
+          #endif
+
       }      
       if (millis() - final_timer >= 1000){
         final_timer = millis(); 
         final_countdown(THE_FINAL_COUNTDOWN);
-        led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x00ff00);
         THE_FINAL_COUNTDOWN--;
         
-        if (THE_FINAL_COUNTDOWN < BR_sub_time_10) {
-          BR_state = BR_timer_10; //TODO прописать дефайны для 50 55 60 (10 5 0)
-          #ifdef DEBUG
-          Serial.println("BR_timer_55");
-          #endif
-          short_tone();
+        if((THE_FINAL_COUNTDOWN >= BR_sub_time_10) && (THE_FINAL_COUNTDOWN != 255)) {
+          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x00ff00);
+          
         }
+
+
+        if (THE_FINAL_COUNTDOWN == BR_sub_time_10 - 1) short_tone();
+        if (THE_FINAL_COUNTDOWN < BR_sub_time_10) {
+          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xffff00);
+
+
+        }        
+        if (THE_FINAL_COUNTDOWN < BR_sub_time_5) {
+          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xff0000);
+          short_tone();
+
+        }
+        if (THE_FINAL_COUNTDOWN == 255) {
+            BR_state = BR_endgame; 
+            long_tone();
+            #ifdef DEBUG
+            Serial.println("BR_endgame");
+            #endif         
+        }
+       
       }
 
       break;
   
   case BR_timer_10:
-      ReadQueueToStatic();  //отследить нажание кнопки и обработать
-      if(!ButtonsQueue.isEmpty()){ //если очередь НЕ пуста то перейти в БР ответ
-          BR_state = BR_answer;
-          short_tone();
-      }      
-      if (millis() - final_timer >= 1000){
-        final_timer = millis(); 
-        final_countdown(THE_FINAL_COUNTDOWN);
-        led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xffff00);
-        THE_FINAL_COUNTDOWN--;
-        
-        if (THE_FINAL_COUNTDOWN < BR_sub_time_5) {
-          BR_state = BR_timer_5; //TODO прописать дефайны для 50 55 60 (10 5 0)
-          #ifdef DEBUG
-          Serial.println("BR_timer_60");
-          #endif
-        }
-      }
-
+// не используется
       break;
   
   case BR_timer_5:
-      ReadQueueToStatic();    //отследить нажание кнопки и обработать
-      if(!ButtonsQueue.isEmpty()){ //если очередь НЕ пуста то перейти в БР ответ
-          BR_state = BR_answer;
-          short_tone();
-      }   
-      if (millis() - final_timer >= 1000){
-          final_timer = millis(); 
-          final_countdown(THE_FINAL_COUNTDOWN);
-          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x0000ff);
-          THE_FINAL_COUNTDOWN--;
-          short_tone(); //писк каждую секунду в последние 5 с      
-          if (THE_FINAL_COUNTDOWN <= 0) {
-            BR_state = BR_endgame; //TODO прописать дефайны для 50 55 60 (10 5 0) + что-то слишком много копипасты кода надо это вынести в отдельную функцию мб или токо -- фт = миллис вынести
-            #ifdef DEBUG
-            Serial.println("BR_endgame");
-            #endif         
-          }
-        }
+      // не используется
       break;
   
   case BR_endgame:
-      long_tone();
       display.clear();
       led_strip_display(0, 0); //очистить СД ленту
 
@@ -157,14 +147,19 @@ void BRAIN_RING_function(){ //ЧГК -0
    
   case BR_answer:
       // digitalWrite(ButtonsQueue.dequeue(), 1);
-      #ifdef DEBUG
-      Serial.println("BR_answer");
-      #endif
       if(selectBtn.isSingle()) {
         // перейти в режим отсчета 20\15с
         BR_state = BR_answer_20_15;
         THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time]; //set time to answer
-
+        //очистить СД ленту и лампы
+        led_strip_display(0, 0); //очистить СД ленту
+        display.clear();
+        clear_lamps();
+        ButtonsQueue.dequeue();//выкинуть из очереди отвечающего игрока
+        #ifdef DEBUG
+        Serial.println("BR_answer_20_15");
+        printQueueStats();
+        #endif
       }
       
       break;
@@ -173,7 +168,35 @@ void BRAIN_RING_function(){ //ЧГК -0
         if (millis() - final_timer >= 1000){
           final_timer = millis(); 
           final_countdown(THE_FINAL_COUNTDOWN);
-          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xff00ff);
+          THE_FINAL_COUNTDOWN--;
+          if (THE_FINAL_COUNTDOWN <= BR_sub_time_5 - 1) {
+            short_tone(); //писк каждую секунду в последние 5 с         
+          }
+          if(THE_FINAL_COUNTDOWN == 255){
+            BR_state = BR_endgame;
+            long_tone();
+
+          }
+        }
+            //отследить нажание кнопки и обработать
+        //если в очереди есть что-то то надо опрос прекратить и вывести на дисплей и на кнопки номер игрока
+        if(ButtonsQueue.isEmpty()) {
+          ReadQueueToStatic();
+          // перейти в режим ожидания нажатия селект
+        }
+        if(!ButtonsQueue.isEmpty()) BR_state = BR_answer;
+
+      break; 
+
+  case BR_answer_5:
+// не используется
+      break; 
+
+  case BR_FS_answer_20_15:
+        if (millis() - final_timer >= 1000){
+          final_timer = millis(); 
+          final_countdown(THE_FINAL_COUNTDOWN);
+          // led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xff00ff);
           THE_FINAL_COUNTDOWN--;
           // short_tone(); //писк каждую секунду в последние 5 с      
           if (THE_FINAL_COUNTDOWN <= BR_sub_time_5) {
@@ -186,24 +209,6 @@ void BRAIN_RING_function(){ //ЧГК -0
         if(selectBtn.isSingle()) THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time];
 
       break; 
-
-  case BR_answer_5:
-        if (millis() - final_timer >= 1000){
-          final_timer = millis(); 
-          final_countdown(THE_FINAL_COUNTDOWN);
-          led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x0000ff);
-          THE_FINAL_COUNTDOWN--;
-          short_tone(); //писк каждую секунду в последние 5 с      
-          if (THE_FINAL_COUNTDOWN <= 0) {
-            BR_state = BR_endgame; //TODO прописать дефайны для 50 55 60 (10 5 0) + что-то слишком много копипасты кода надо это вынести в отдельную функцию мб или токо -- фт = миллис вынести
-            #ifdef DEBUG
-            Serial.println("BR_endgame");
-            #endif         
-        }
-        }
-        if(selectBtn.isSingle()) THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time];      
-
-      break;  
   default:
 
   break;

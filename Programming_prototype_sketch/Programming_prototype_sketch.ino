@@ -35,7 +35,7 @@ TM1637Display display(CLK, DIO);
 //Константя для прерываний
 volatile bool interrupt_state = 0;
 
-u8 menu_state = 1;
+u8 menu_state = 2;
 
 //таймеры
 uint32_t test_timer;
@@ -43,10 +43,10 @@ uint32_t final_timer;
 uint32_t tone_timer;
 
 u8 THE_FINAL_COUNTDOWN;
-u8 CGK_state;
 
-u8 btn_buffer[BUTTONS_QUANTITY] = {};
-u8 blink_buffer[BUTTONS_QUANTITY] = {};
+
+u8 btn_buffer[BUTTONS_QUANTITY] = {}; //array with already pressed btns
+u8 blink_buffer[BUTTONS_QUANTITY] = {}; //array with buttons to blink
 
 
  enum {
@@ -61,10 +61,10 @@ u8 blink_buffer[BUTTONS_QUANTITY] = {};
 } BR_states;
 
 
-bool CGK_init_flag, BR_init_flag, W_KILLER_init, SWOYA_GAME_init;
+bool CGK_init_flag, BR_init_flag, W_SHOOTER_init, SWOYA_GAME_init;
 u16 strip_mp = 2;//множитель для отношения времени к числу зажженных сд на ленте
 
-u8 BR_state;
+u8 CGK_state, BR_state, WS_state;
 u8 test_state;
 
 bool strip_blink_flag;
@@ -162,7 +162,7 @@ void loop() {
     menu_state++ ;
     BR_init_flag = false; //c этим надо что-то сделать так нельзя мб засунуть в стракт или в массив
     CGK_init_flag = false;
-    W_KILLER_init = false;
+    W_SHOOTER_init = false;
     SWOYA_GAME_init = false;
     // BR_state = BR_init; // верменное решение пока режим не доконца прописан
     disp_1bit_7seg(0); //petrify 1 bit ss
@@ -218,7 +218,7 @@ void loop() {
   BRAIN_RING_function();  //Брейн ринг - 1
   break;
   case 2:
-  W_KILLER_function();  //Ворошиловский снайперок - 2
+  W_SHOOTER_function();  //Ворошиловский снайперок - 2
   break;
   case 3:
   SVOYA_GAME_function();  //Своя игра - 3
