@@ -35,7 +35,7 @@ TM1637Display display(CLK, DIO);
 //Константя для прерываний
 volatile bool interrupt_state = 0;
 
-u8 menu_state = 2;
+u8 menu_state = 3;
 
 //таймеры
 uint32_t test_timer;
@@ -64,7 +64,7 @@ u8 blink_buffer[BUTTONS_QUANTITY] = {}; //array with buttons to blink
 bool CGK_init_flag, BR_init_flag, W_SHOOTER_init, SWOYA_GAME_init;
 u16 strip_mp = 2;//множитель для отношения времени к числу зажженных сд на ленте
 
-u8 CGK_state, BR_state, WS_state;
+u8 CGK_state, BR_state, WS_state, SG_state;
 u8 test_state;
 
 bool strip_blink_flag;
@@ -174,30 +174,31 @@ void loop() {
  
 //отобразить состояние ленты раз в секунду TODO mb delete after
   if(stripTimer.isReady()){  
-    led_strip_show();
-    //мб тут описать как вывод раз в секунду мигания илихз
-    // Serial.println("PEPE");
+//обработка мигания ленты и кнопок
     strip_blink_flag = !strip_blink_flag;
     if(strip_blink_flag){
       //enable all blinking buttons
       for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
       {
-      if (blink_buffer[i]) {
+      if (blink_buffer[i] ) {
         static_btn_strip(i, true);
         static_lamp(i, true);
       }
       }
     }
     else{
-      //disable all blinking buttons
-      for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
-      {
-      if (blink_buffer[i]) {
-        static_btn_strip(i, false);
-        static_lamp(i, false);
-      }
-      }
+      // if(){
+        //disable all blinking buttons
+        for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
+        {
+        if (blink_buffer[i]) {
+          static_btn_strip(i, false);
+          static_lamp(i, false);
+        }
+        }
+      // }
     }
+    led_strip_show();
   }
 
  

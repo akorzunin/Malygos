@@ -200,7 +200,7 @@ void PetrifyQueue(){
     btn_buffer[i] = 1;
     buttons_state[i] = 1;
     //очистка ламп игроков
-    static_lamp(i, !false);
+    static_lamp(i, false);
   }
 
   #ifdef DEBUG
@@ -216,7 +216,7 @@ void ReadQueueToStatic(){   //debug
       ButtonsQueue.enqueue(i + 1);
       led_strip_display(0,0);
       static_btn_strip(i, true);
-      static_lamp(i, !true);
+      static_lamp(i, true);
     }
   }
 }
@@ -236,7 +236,7 @@ void ReadQueue(){   //debug
 void clear_lamps(){ 
   for (u8 i = 0; i < BUTTONS_QUANTITY; ++i)
   {
-    static_lamp(i, !false);
+    static_lamp(i, false);
 
   }
 }
@@ -268,7 +268,7 @@ void blink_btn_strip(u8 btn_number, bool state){
     //disable blinking
     blink_buffer[btn_number] = 0;
     static_btn_strip(btn_number, false); 
-    static_lamp(btn_number, true);   
+    static_lamp(btn_number, false);   
   }
 }
 
@@ -302,7 +302,7 @@ void static_btn_strip(u8 btn_number, bool state){
 
 
 void static_lamp(u8 btn_number, bool state){ //bool vale inverted for sync
-  if(!state){
+  if(state){
   //enable burning
     digitalWrite(led_pins[btn_number], 1); 
   }
@@ -333,7 +333,7 @@ void led_strip_show(){
 //       // led_strip_display(0,0);
 
 //       // blink_btn_strip(i, true);
-//       // static_lamp(i, !true);
+//       // static_lamp(i, true);
 //     }
 //   }
 // }

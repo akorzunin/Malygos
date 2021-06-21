@@ -26,7 +26,7 @@ switch (WS_state) {
 	break;
 
 	case WS_null:
-	if(selectBtn.isSingle()){
+	// if(selectBtn.isSingle()){
 		WS_state = WS_main;
 		short_tone();
 		digitalWrite(seg_1bit_pin_DP , ONEBIT_HIGH); //отметить хоть как-то что режим начат
@@ -35,7 +35,7 @@ switch (WS_state) {
 		#ifdef DEBUG
 		Serial.println("WS_main");
 		#endif
-	}
+	// }
 	break;
 
 	case WS_main:
@@ -58,7 +58,7 @@ switch (WS_state) {
 		      // led_strip_display(0,0);
 
 		      // blink_btn_strip(i, true);
-		      // static_lamp(i, !true);
+		      // static_lamp(i, true);
 		    }
   	    }
 	}
@@ -83,28 +83,31 @@ switch (WS_state) {
         for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
             if(WS_buffer[i] == 0){ //потушить столб на СД ленте и лампу игрока
                 static_btn_strip(i, false);
-                static_lamp(i, !false);
+                static_lamp(i, false);
                 blink_btn_strip(i, false);//stop blinking
 
             }
             if(WS_buffer[i] == 1){ //просто горит столб на СД ленте и лампа игрока
                 static_btn_strip(i, true);
-                static_lamp(i, !true);
+                static_lamp(i, true);
+                if(blink_buffer[i]){
+                	blink_btn_strip(i, false);
+                }
     
             }
             if(WS_buffer[i] == 2){ //мигает столб на СД ленте и лампа игрока
                 // WS_blink_flag = !WS_blink_flag;
                 // if(WS_blink_flag){
                 //     static_btn_strip(i, true);
-                //     static_lamp(i, !true);
+                //     static_lamp(i, true);
                 // }
                 // else{
                 //     static_btn_strip(i, false);
-                //     static_lamp(i, !false);
+                //     static_lamp(i, false);
                 // }
                 blink_btn_strip(i, true);
                 // static_btn_strip(i, true);
-                // static_lamp(i, !true);
+                // static_lamp(i, true);
             }
         }
 
@@ -136,7 +139,7 @@ switch (WS_state) {
   	for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
   	blink_btn_strip(i, false);
   	static_btn_strip(i, false);
-  	static_lamp(i, !false);
+  	static_lamp(i, false);
   	WS_buffer[i] = 0;
   	}
 	PetrifyQueue();

@@ -70,6 +70,7 @@ void BRAIN_RING_function(){ //ЧГК -0
 
         //запуск режима
         if (selectBtn.isSingle()) {
+          selectBtn.isSingle(); //очистить очередь нажатий
           BR_state = BR_timer_50;
           speed_timer = millis(); //записать время начала режима
           short_short_tone(); //regular start
@@ -148,6 +149,7 @@ void BRAIN_RING_function(){ //ЧГК -0
   case BR_answer:
       // digitalWrite(ButtonsQueue.dequeue(), 1);
       if(selectBtn.isSingle()) {
+        selectBtn.isSingle(); //очистить очередь нажатий
         // перейти в режим отсчета 20\15с
         BR_state = BR_answer_20_15;
         THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time]; //set time to answer
@@ -206,8 +208,10 @@ void BRAIN_RING_function(){ //ЧГК -0
             #endif         
           }
         }
-        if(selectBtn.isSingle()) THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time];
-
+        if(selectBtn.isSingle()) {
+          selectBtn.isSingle(); //очистить очередь нажатий
+          THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time];
+        }
       break; 
   default:
 
