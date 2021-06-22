@@ -44,6 +44,9 @@
 
 #define WS_REFRESH_TIME 300
 
+#define SG_MAIN_TIME 7
+#define SG_QUEUE_MODE 1 //true позволяет нажимать кнопку несколько раз
+
 //настройки звуковых сигналов
 #define SHORT_SHORT_TONE_DUR 100
 #define SHORT_TONE_DUR 300
