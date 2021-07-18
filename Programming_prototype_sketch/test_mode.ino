@@ -1,4 +1,4 @@
-
+//function for game mode 4 TEST MODE
 void test_mode(){
 	static enum 
 	{

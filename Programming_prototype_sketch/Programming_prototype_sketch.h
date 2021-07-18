@@ -1,51 +1,48 @@
+// Файл с насторйками для прошивки
+
+// В режиме DEBUG выводится информация для отладки в СОМ порт
 #define DEBUG 
 
-#define BUTTONS_QUANTITY 15 //кнопка 7 на пине 44 не работает
-//#define QUEUE_SIZE_ITEMS BUTTONS_QUANTITY 
+//коллическтво кнопок игроков
+#define BUTTONS_QUANTITY 15 
 
-//gyver button настройки для обработки кнопок меню
-#define MODE_BTN_PIN 15 //пины кнопок
+//пины кнопок
+#define MODE_BTN_PIN 15 
 #define SELECT_BTN_PIN 16
 #define RESET_BTN_PIN 17
 #define DEBUG_BTN_PIN 14
 
+//настройки для обработки кнопок меню [мс]
 #define DEBOUNCE 1 //антидребезг
-#define HOLD_TIMEOUT 500
-#define CLICK_TIMEOUT 300
+#define HOLD_TIMEOUT 500 //удрежание
+#define CLICK_TIMEOUT 300 //одиночное нажатие
+// более быстрая обработка кнопки SLELECT 
 #define SELECT_CLICK_TIMEOUT 1
 
 
 //настройки адресной светодиодной ленты
-#define PIN_1 2     //пины для вывода данных на ленту  
+//пины для вывода данных на ленту  
+#define PIN_1 2     
 #define PIN_2 3 
 #define PIN_3 4 
 #define PIN_4 5
 
+// яркость СД ленты
 #define LED_STR_BR 50
 
 #define NUM_LEDS 30   // число диодов в ленте
 #define STRIP_LED_NUM 15 //чило секций на ленте(должно соответствовать числу кнопок)
 #define LED_STRIP_ROWS 4
 
-#define INTERRUPT_3 21 //прерывание кнопок просто настраиваем этот пин на чтение оно не на что особо не влияет потому что в функции стоит 0 пин но работает пин 2
+//пин прерывания для опроса кнопок игроков
+#define INTERRUPT_3 21 
 
-#define CLK 52 //пины для 4битового 7сегм
-#define DIO 53 //JOTORO
+//пины для 4битового 7-и сегментного индикатора
+#define CLK 52 
+#define DIO 53 
+
+// пин для вывода звука на усилитель
 #define SOUND_PIN 19
-
-//константы с игровых режимов
-#define CGK_main_time 60
-#define CGK_sub_time 10
-#define CGK_sub_sub_time 5
-
-#define BR_main_time 60
-#define BR_sub_time_10 10
-#define BR_sub_time_5 5
-
-#define WS_REFRESH_TIME 300
-
-#define SG_MAIN_TIME 7
-#define SG_QUEUE_MODE 1 //true позволяет нажимать кнопку несколько раз
 
 //настройки звуковых сигналов
 #define SHORT_SHORT_TONE_DUR 100
@@ -53,10 +50,31 @@
 #define LONG_TONE_DUR 1000
 #define TONE_FREQ 500
 
+//константы из игровых режимов
 
-int8_t DispMSG[] = {1, 2, 3, 4}; 
+// режим ЧТО ГДЕ КОГДА
+#define CGK_main_time 60
+#define CGK_sub_time 10
+#define CGK_sub_sub_time 5
+
+// режим БРЕЙН РИНГ
+#define BR_main_time 60
+#define BR_sub_time_10 10
+#define BR_sub_time_5 5
+
+// режим ВОРОШИЛОВСКИЙ СТРЕЛОК
+#define WS_REFRESH_TIME 300
+
+// режим СВОЯ ИГРА
+#define SG_MAIN_TIME 7
+//если true, позволяет нажимать кнопку игрока несколько раз
+#define SG_QUEUE_MODE 1 
+
+
+
+int8_t DispMSG[] = {1, 2, 3, 4}; //?
  
-// кнопки для игроков
+// пины кнопок для игроков
 #define buttonPin_0 37
 #define buttonPin_1 38
 #define buttonPin_2 39
@@ -73,6 +91,7 @@ int8_t DispMSG[] = {1, 2, 3, 4};
 #define buttonPin_13 50
 #define buttonPin_14 51
 
+// массив с номерами кнопок игроков
 const u8 button_pins[]{
   buttonPin_0, 
   buttonPin_1,
@@ -91,9 +110,10 @@ const u8 button_pins[]{
   buttonPin_14 
 };
 
-volatile u8 buttons_state[BUTTONS_QUANTITY]; // массив который хранит информацию собранную после опроса кнопок по прерыванию
+// массив-буфер для храниения состояния кнопок поле опроса по прерыванию
+volatile u8 buttons_state[BUTTONS_QUANTITY]; 
 
-//светодиодные лампы над кнопками
+//пины для управления светодиодными лампами над кнопками
 #define ledPin_0 22
 #define ledPin_1 23
 #define ledPin_2 24
@@ -110,6 +130,7 @@ volatile u8 buttons_state[BUTTONS_QUANTITY]; // массив который хр
 #define ledPin_13 35
 #define ledPin_14 36
 
+// массив с лампами игроков
 const u8 led_pins[] = {
   ledPin_0, 
   ledPin_1, 
@@ -127,10 +148,13 @@ const u8 led_pins[] = {
   ledPin_13, 
   ledPin_14 
 };
-u8 leds_state[BUTTONS_QUANTITY]; //массив с состояниями светодиодов над кнопками
-u8 inQueue[BUTTONS_QUANTITY]; //массив который помнит, кто есть в очереди уже
 
-//пины семисегментного индикатора для отображения номера режима
+//массив с состояниями светодиодов над кнопками
+u8 leds_state[BUTTONS_QUANTITY]; 
+//массив который помнит, кто уже в очереди 
+u8 inQueue[BUTTONS_QUANTITY]; 
+
+//пины одновитного семисегментного индикатора
 #define seg_1bit_pin_A 6
 #define seg_1bit_pin_B 7
 #define seg_1bit_pin_C 8
@@ -152,6 +176,7 @@ const char seg_1bit[] = {
   };
 
 //common anode/cathode for 1bit ss
-#define ONEBIT_LOW 1
+// настройка режима с общим анодом/общим катодом для 1-битного семисегментного индикатора
+#define ONEBIT_LOW 1 //
 #define ONEBIT_HIGH 0
 
