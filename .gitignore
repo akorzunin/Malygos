@@ -1,3 +1,6 @@
 
 Programming_prototype_sketch/Programming_prototype_sketch.ino.eightanaloginputs.hex
 Programming_prototype_sketch/Programming_prototype_sketch.ino.with_bootloader.eightanaloginputs.hex
+Programming_prototype_sketch/.vscode/arduino.json
+Programming_prototype_sketch/.vscode/c_cpp_properties.json
+*.json

@@ -39,6 +39,7 @@ void CGK_function(){ //ЧГК -0
             break;
 
         case start_CGK:
+            selectBtn.isSingle();
             short_tone();
             final_countdown(CGK_main_time);
             THE_FINAL_COUNTDOWN = CGK_main_time - 1;
@@ -47,6 +48,7 @@ void CGK_function(){ //ЧГК -0
             break;
         
         case(CGK_50):
+            selectBtn.isSingle();
             if(millis() - final_timer >= 1000){
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
@@ -60,6 +62,7 @@ void CGK_function(){ //ЧГК -0
             break;
 
         case(CGK_10):
+            selectBtn.isSingle();
             if(millis() - final_timer >= 1000){
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
@@ -73,6 +76,7 @@ void CGK_function(){ //ЧГК -0
             break;
 
         case(CGK_5):
+            selectBtn.isSingle();
             if(millis() - final_timer >= 1000){
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);

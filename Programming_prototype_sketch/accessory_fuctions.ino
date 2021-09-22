@@ -221,6 +221,22 @@ void ReadQueueToStatic(){   //debug
   }
 }
 
+void ReadQueueToBlink()
+{ //debug
+  for (u8 i = 0; i < BUTTONS_QUANTITY; i++)
+  {
+    if ((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1)
+    {
+      //занести в буфер и в очередь
+      btn_buffer[i] = 0;
+      ButtonsQueue.enqueue(i + 1);
+      led_strip_display(0, 0);
+      blink_btn_strip(i, true);
+      // blink_lamp(i, true);
+    }
+  }
+}
+
 void ReadQueue(){   //debug
     for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
     if((buttons_state[i] != btn_buffer[i]) && btn_buffer[i] == 1){

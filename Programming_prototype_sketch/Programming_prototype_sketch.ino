@@ -12,6 +12,7 @@
 GTimer myTimer(MS, 3000); //?
 GTimer stripTimer(MS, 1000); 
 GTimer led_timer(MS); //?
+GTimer test_mode_timer(MS);
 
 // rows of LED strip
 Adafruit_NeoPixel strip_1 = Adafruit_NeoPixel(NUM_LEDS, PIN_1, NEO_GRB + NEO_KHZ800);
@@ -34,13 +35,13 @@ TM1637Display display(CLK, DIO);
 //interrupt var
 volatile bool interrupt_state = 0;
 
-bool CGK_init_flag, BR_init_flag, W_SHOOTER_init, SWOYA_GAME_init;
+bool CGK_init_flag, BR_init_flag, W_SHOOTER_init, SWOYA_GAME_init, test_mode_init_flag;
 bool strip_blink_flag;
 
 u8 CGK_state, BR_state, WS_state, SG_state;
-u8 test_state; //? mb add up, mb delete
+u8 test_state = 0; //? mb add up, mb delete
 u8 THE_FINAL_COUNTDOWN; //var to indicate time in game modes
-u8 menu_state = 3;
+u8 menu_state = 1;
 u8 btn_buffer[BUTTONS_QUANTITY] = {}; //array with already pressed btns
 u8 blink_buffer[BUTTONS_QUANTITY] = {}; //array with buttons to blink
 
@@ -119,22 +120,24 @@ void setup() {
     attachInterrupt(3, buttonTick, RISING); //buttonTick это функция прерывания никто не знает почему там должен быть 0 но иначе не работает 0/3
   
     //init menu buttons
-    modeBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-    // modeBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-    // modeBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+    modeBtn.setDebounce(SELECT_DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
+    modeBtn.setTimeout(HOLD_TIMEOUT);        // настройка таймаута на удержание (по умолчанию 500 мс)
+    modeBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
   
     selectBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-    // selectBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
+    selectBtn.setTimeout(HOLD_TIMEOUT);        // настройка таймаута на удержание (по умолчанию 500 мс)
     selectBtn.setClickTimeout(SELECT_CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
   
     resetBtn.setDebounce(DEBOUNCE);        // настройка антидребезга (по умолчанию 80 мс)
-    // resetBtn.setTimeout(SELECT_BTN_PIN);        // настройка таймаута на удержание (по умолчанию 500 мс)
-    // resetBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+    resetBtn.setTimeout(HOLD_TIMEOUT);        // настройка таймаута на удержание (по умолчанию 500 мс)
+    resetBtn.setClickTimeout(CLICK_TIMEOUT);   // настройка таймаута между кликами (по умолчанию 300 мс)
+    
     debugBtn.setDebounce(DEBOUNCE);
 
     test_timer = millis(); //?
     led_timer.setTimeout(1500); //?
     strip_mp = CGK_main_time/STRIP_LED_NUM;
+    test_mode_timer.setTimeout(20);
 }
 
 void loop() {
@@ -148,6 +151,7 @@ void loop() {
         CGK_init_flag = false;
         W_SHOOTER_init = false;
         SWOYA_GAME_init = false;
+        test_mode_init_flag = false;
         
         disp_1bit_7seg(0); //petrify 1 bit ss
         display.clear(); // petrify 4 bit ss

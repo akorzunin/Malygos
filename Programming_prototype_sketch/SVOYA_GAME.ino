@@ -53,6 +53,12 @@ void SVOYA_GAME_function(){
 		    	SG_falsestart = !SG_falsestart;
 		        digitalWrite(seg_1bit_pin_DP , ONEBIT_LOW ^ SG_falsestart);
 			}
+			// do the same but with hold action
+			if (modeBtn.isHold()){
+				SG_falsestart = !SG_falsestart;
+				digitalWrite(seg_1bit_pin_DP, ONEBIT_LOW ^ SG_falsestart);
+				delay(HOLD_TIMEOUT);
+			}
 			break;
 
 		case SG_main:
@@ -83,9 +89,9 @@ void SVOYA_GAME_function(){
 				led_strip_display(0, 0);
 				selectBtn.isSingle(); //clear input 
 				for(u8 i = 0; i < BUTTONS_QUANTITY; i++){
-			  	blink_btn_strip(i, false);
-			  	static_btn_strip(i, false);
-			  	static_lamp(i, false);
+					blink_btn_strip(i, false);
+					static_btn_strip(i, false);
+					static_lamp(i, false);
 			  	}
 		    	final_timer = millis();
 				SG_state = SG_main;
@@ -94,7 +100,6 @@ void SVOYA_GAME_function(){
 			break;
 
 		case SG_endgame:
-			long_tone();
 			display.clear();
 			led_strip_display(0, 0);
 			selectBtn.isSingle(); //clear input 

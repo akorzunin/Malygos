@@ -13,10 +13,11 @@
 #define DEBUG_BTN_PIN 14
 
 //настройки для обработки кнопок меню [мс]
-#define DEBOUNCE 1 //антидребезг
-#define HOLD_TIMEOUT 500 //удрежание
-#define CLICK_TIMEOUT 300 //одиночное нажатие
+#define DEBOUNCE 80 //антидребезг
+#define HOLD_TIMEOUT 1000 //удрежание
+#define CLICK_TIMEOUT 500 //одиночное нажатие
 // более быстрая обработка кнопки SLELECT 
+#define SELECT_DEBOUNCE 1
 #define SELECT_CLICK_TIMEOUT 1
 
 

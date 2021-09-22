@@ -27,7 +27,6 @@ void W_SHOOTER_function(){
 
 		case WS_null:
 			WS_state = WS_main;
-			short_tone();
 			digitalWrite(seg_1bit_pin_DP , ONEBIT_HIGH); //indicate start of game mode
 			PetrifyQueue();
 			selectBtn.isSingle();
@@ -41,7 +40,11 @@ void W_SHOOTER_function(){
 			if (ButtonsQueue.isEmpty()) {
 		    	//if queue is mt then first button should burn constantly	
 		    	ReadQueue();
-		    	WS_buffer[ButtonsQueue.getHead() - 1] = 1;	
+		    	WS_buffer[ButtonsQueue.getHead() - 1] = 1;
+				if (!ButtonsQueue.isEmpty())
+				{
+					short_tone();
+				}
 			}
 			else {
 		        //poll player buttons
@@ -51,6 +54,8 @@ void W_SHOOTER_function(){
 						btn_buffer[i] = 0;
 						ButtonsQueue.enqueue(i + 1);
 						WS_buffer[i] = 2;
+						//make sound when player press btn
+						short_short_tone();
 					}
 		  	    }
 			}
@@ -59,8 +64,12 @@ void W_SHOOTER_function(){
 				// dequeue one btn
 				WS_buffer[ButtonsQueue.getHead() - 1] = 0;
 		        ButtonsQueue.dequeue();
+		        if(!ButtonsQueue.isEmpty()) {
+					short_short_tone();
+				}
 		        if(ButtonsQueue.isEmpty()) {
 		            WS_state = WS_endgame;
+					long_tone();
 		        }	
 		        else WS_buffer[ButtonsQueue.getHead() - 1] = 1; //поменять состяоние для кнопки которая стала последней в очереди
 			}
@@ -100,7 +109,6 @@ void W_SHOOTER_function(){
 			break;
 
 		case WS_endgame:
-			long_tone();
 			display.clear();
 			led_strip_display(0, 0);
 			WS_state = WS_init;
