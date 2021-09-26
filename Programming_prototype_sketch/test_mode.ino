@@ -6,12 +6,6 @@ void test_mode(){
 		TEST_NULL,
 		TEST_MODE_1,
 		TEST_MODE_2,
-
-		// SOUND_TEST,
-		// BUTTON_TEST,
-		// LED_STRIP_TEST,
-		// INTERRUPT_TEST,
-		
 	} test_;
 
 	if (debugBtn.isSingle()) Serial.println("test_state"); //listing modes
@@ -47,14 +41,6 @@ void test_mode(){
 			test_state = TEST_INIT;
 
 		break;
-			// case TEST_MODE_1:
-
-			// break;
-			// case TEST_MODE_1:
-
-			// break;
-
-
 	}
 }
 
@@ -108,7 +94,6 @@ void rainbowCycle(int SpeedDelay) {
   uint16_t i, j;
 
   for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
-    // if(test_mode_timer.isReady()){
 		for(i=0; i< NUM_LEDS; i++) {
 		c=Wheel(((i * 256 / NUM_LEDS) + j) & 255);
 		setPixel(i, *c, *(c+1), *(c+2));
@@ -122,21 +107,15 @@ void rainbowCycle(int SpeedDelay) {
 	if (selectBtn.isSingle()) {
 		break;
 	}
-	// }
   }
-	// test_mode_timer.start();
 }
 
 void Fire(int Cooling, int Sparking, int SpeedDelay) {
-  static byte heat[NUM_LEDS][4];
+  static byte heat[NUM_LEDS][4]; // 4 is number of rows
   int cooldown;
 	while(1){
-		// if(test_mode_timer.isReady()){
 			for (u8 n = 1; n < 5; n++)
 			{
-				/* code */
-			
-			
 				// Step 1.  Cool down every cell a little
 				for( int i = 0; i < NUM_LEDS; i++) {
 					cooldown = random(0, ((Cooling * 10) / NUM_LEDS) + 2);
@@ -157,7 +136,6 @@ void Fire(int Cooling, int Sparking, int SpeedDelay) {
 				if( random(255) < Sparking ) {
 					int y = random(7);
 					heat[y][n] = heat[y][n] + random(160,255);
-					//heat[y] = random(160,255);
 				}
 
 				// Step 4.  Convert heat to LED colors

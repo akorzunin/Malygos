@@ -52,7 +52,8 @@ void CGK_function(){ //ЧГК -0
             if(millis() - final_timer >= 1000){
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
-                led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x00ff00);//вывести зеленые СД 2*THE_FINAL_COUNTDOWN/strip_mp
+                //вывести зеленые СД 2*THE_FINAL_COUNTDOWN/strip_mp
+                led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x00ff00);
                 THE_FINAL_COUNTDOWN--;
                 if(THE_FINAL_COUNTDOWN < CGK_sub_time){
                     short_tone();
@@ -80,7 +81,7 @@ void CGK_function(){ //ЧГК -0
             if(millis() - final_timer >= 1000){
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
-                led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x0000ff); //тож самое токо СД red
+                led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xff0000); //тож самое токо СД red
                 THE_FINAL_COUNTDOWN--;
                 short_tone();
                 if(THE_FINAL_COUNTDOWN == 255){

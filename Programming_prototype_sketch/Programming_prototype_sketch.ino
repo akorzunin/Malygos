@@ -41,7 +41,7 @@ bool strip_blink_flag;
 u8 CGK_state, BR_state, WS_state, SG_state;
 u8 test_state = 0; //? mb add up, mb delete
 u8 THE_FINAL_COUNTDOWN; //var to indicate time in game modes
-u8 menu_state = 1;
+u8 menu_state = 0;
 u8 btn_buffer[BUTTONS_QUANTITY] = {}; //array with already pressed btns
 u8 blink_buffer[BUTTONS_QUANTITY] = {}; //array with buttons to blink
 
@@ -198,9 +198,7 @@ void loop() {
         SVOYA_GAME_function();  //Своя игра - 3
         break;
         case 4:
-        #ifdef DEBUG
         test_mode();
-        #endif
         break;
         default:
         menu_state = 0;

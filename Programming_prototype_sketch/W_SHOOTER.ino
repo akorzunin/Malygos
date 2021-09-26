@@ -1,6 +1,7 @@
 //function for game mode 2 ВОРОШИЛОВСКИЙ СТРЕЛОК W_SHOOTER
 void W_SHOOTER_function(){ 
-	static u8 WS_buffer[BUTTONS_QUANTITY] = {}; //array with states of each player 0 - noting 1 - static ligth 2 - blink
+	//array with states of each player 0 - noting, 1 - static ligth, 2 - blink
+	static u8 WS_buffer[BUTTONS_QUANTITY] = {}; 
 	static bool WS_blink_flag;
 	static enum 
 	{
@@ -81,7 +82,6 @@ void W_SHOOTER_function(){
 		                static_btn_strip(i, false);
 		                static_lamp(i, false);
 		                blink_btn_strip(i, false);//stop blinking
-
 		            }
 		            if(WS_buffer[i] == 1){ //просто горит столб на СД ленте и лампа игрока
 		                static_btn_strip(i, true);
@@ -89,7 +89,6 @@ void W_SHOOTER_function(){
 		                if(blink_buffer[i]){
 		                	blink_btn_strip(i, false);
 		                }
-		    
 		            }
 		            if(WS_buffer[i] == 2){ //мигает столб на СД ленте и лампа игрока
 		                blink_btn_strip(i, true);

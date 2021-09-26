@@ -25,9 +25,9 @@ void BRAIN_RING_function(){
         #ifdef DEBUG
         Serial.println("BR_endgame");
         #endif
-        // ButtonsQueue.enqueue(2); //debug
     }
-    switch (BR_state) {
+    switch (BR_state) 
+    {
         case BR_init:
             #ifdef DEBUG
             Serial.println("BRAIN_RING"); 
@@ -47,6 +47,7 @@ void BRAIN_RING_function(){
 
         case BR_null:
             led_strip_display(0,0); //очистить ленту
+            //indecate current false start state with point segment on 1bit ss
             //выбор режима фальстарта
             if (modeBtn.isDouble()) 
             {
@@ -60,9 +61,6 @@ void BRAIN_RING_function(){
               digitalWrite(seg_1bit_pin_DP, ONEBIT_LOW ^ BR_false_start_flag);
               delay(HOLD_TIMEOUT);
             }
-            //indecate current false start state with point segment on 1bit ss
-            // if (BR_false_start_flag) digitalWrite(seg_1bit_pin_DP, ONEBIT_HIGH);
-            // else digitalWrite(seg_1bit_pin_DP, ONEBIT_LOW);
             //выбор времени на ответ
             if (resetBtn.isDouble())
             { //modeBtn.isTriple()
@@ -72,16 +70,17 @@ void BRAIN_RING_function(){
               display.showNumberDec(BR_answer_time[BR_current_answer_time], false, 2, 2);
             }
             if (BR_false_start_flag)
-            { //если фальстарт включен то тут его надо отслеживать
-              //если кнопка игрока нажата, то это фальстарт получается
-            //   ReadQueueToStatic(); //отследить нажание кнопки и обработать
+            { 
+                //если фальстарт включен то тут его надо отслеживать
+                //если кнопка игрока нажата, то это фальстарт получается
+                //отследить нажание кнопки и обработать
                 ReadQueueToBlink();
                 if (!ButtonsQueue.isEmpty())
-                {   //если очередь НЕ пуста то перейти в БР ответ
+                {   
+                    //если очередь НЕ пуста то перейти в БР ответ
                     THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time]; //set time to answer
                     BR_state = BR_answer;
                     long_tone(); //falsestart
-                    // PetrifyQueue(); //fix
                     erase_flag = true;
                 }
             }
@@ -104,7 +103,9 @@ void BRAIN_RING_function(){
         case BR_timer_50:
             selectBtn.isSingle(); //fix cannot use this btn in this mode
             ReadQueueToStatic();  //отследить нажание кнопки и обработать
-            if(!ButtonsQueue.isEmpty()){ //если очередь НЕ пуста то перейти в БР ответ
+            if(!ButtonsQueue.isEmpty())
+            { 
+                //если очередь НЕ пуста то перейти в БР ответ
                 BR_state = BR_answer;
                 short_tone();
                 speed_timer =  millis() - speed_timer;
@@ -115,7 +116,8 @@ void BRAIN_RING_function(){
                 #endif
                 final_timer = millis(); //fix
             }      
-            if (millis() - final_timer >= 1000){
+            if (millis() - final_timer >= 1000)
+            {
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
                 THE_FINAL_COUNTDOWN--;
@@ -123,18 +125,13 @@ void BRAIN_RING_function(){
                 if((THE_FINAL_COUNTDOWN >= BR_sub_time_10) && (THE_FINAL_COUNTDOWN != 255)) {
                     led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0x00ff00);
                 }
-
-
                 if (THE_FINAL_COUNTDOWN == BR_sub_time_10 - 1) short_tone();
                 if (THE_FINAL_COUNTDOWN < BR_sub_time_10) {
                     led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xffff00);
-
-
                 }        
                 if (THE_FINAL_COUNTDOWN < BR_sub_time_5) {
                     led_strip_display(2*THE_FINAL_COUNTDOWN/strip_mp, 0xff0000);
                     short_tone();
-
                 }
                 if (THE_FINAL_COUNTDOWN == 255) {
                     BR_state = BR_endgame; 
@@ -146,14 +143,6 @@ void BRAIN_RING_function(){
 
             }
             break;
-
-        case BR_timer_10:
-        // не используется
-          break;
-
-        case BR_timer_5:
-        // не используется
-          break;
 
         case BR_endgame:
             display.clear();
@@ -170,7 +159,8 @@ void BRAIN_RING_function(){
             break;
 
         case BR_answer:
-            if(selectBtn.isSingle()) {
+            if(selectBtn.isSingle())
+            {
                 selectBtn.isSingle(); //очистить очередь нажатий
                 // make sound if we came here after false start
                 if (erase_flag) short_tone();
@@ -192,7 +182,8 @@ void BRAIN_RING_function(){
 
         case BR_answer_20_15:
             selectBtn.isSingle(); //fix cannot use it here
-            if (millis() - final_timer >= 1000){
+            if (millis() - final_timer >= 1000)
+            {
                 final_timer = millis(); 
                 final_countdown(THE_FINAL_COUNTDOWN);
                 THE_FINAL_COUNTDOWN--;
@@ -225,32 +216,5 @@ void BRAIN_RING_function(){
             }
 
           break; 
-
-        case BR_answer_5:
-        // не используется
-          break; 
-
-        case BR_FS_answer_20_15:
-            if (millis() - final_timer >= 1000){
-                final_timer = millis(); 
-                final_countdown(THE_FINAL_COUNTDOWN);
-                THE_FINAL_COUNTDOWN--;
-                //make noise every last 5 sec      
-                if (THE_FINAL_COUNTDOWN <= BR_sub_time_5) {
-                    BR_state = BR_endgame; 
-                    #ifdef DEBUG
-                    Serial.println("BR_endgame");
-                    #endif         
-                }
-            }
-            if(selectBtn.isSingle()) {
-                selectBtn.isSingle(); //очистить очередь нажатий
-                short_short_tone();
-                THE_FINAL_COUNTDOWN = BR_answer_time[BR_current_answer_time];
-            }
-            break; 
-        default:
-        //noting
-        break;
-        }
+    }
 }
