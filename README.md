@@ -22,7 +22,8 @@ Introduction
 10. Speaker-out 3.5mm jack 
 ### Front view:
 ![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
-11. RS-232
+11. RS-232 connector for display
+12. Micro USB port
 
 ### Rear view:
 ![image](https://user-images.githubusercontent.com/54314123/137315934-f6aca98a-af7f-4295-8fb9-7bb81112c131.png)
@@ -34,6 +35,7 @@ How to use
 1. Plug in power 12V DC
 2. Plug in speaker
 3. Plug in display
+4. Chose 
 
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
@@ -65,7 +67,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTAwMDEyOTAsNzMxOTU1OTA4LC0xOT
-gzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYy
-MTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbMTM3OTA4MzE2NCw3MzE5NTU5MDgsLTE5OD
+M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
+NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
