@@ -22,14 +22,18 @@ Introduction
 10. Speaker-out 3.5mm jack 
 ### Front view:
 ![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
+11. RS-232
 
 ### Rear view:
 ![image](https://user-images.githubusercontent.com/54314123/137315934-f6aca98a-af7f-4295-8fb9-7bb81112c131.png)
  - 15 USB type B ports
 
 How to use
----
-## Quick 
+===
+## Quick start
+1. Plug in power 12V DC
+2. Plug in speaker
+3. Plug in display
 
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
@@ -61,7 +65,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMDU5Mjk1Niw3MzE5NTU5MDgsLTE5OD
-M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
-NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbLTEzNTAwMDEyOTAsNzMxOTU1OTA4LC0xOT
+gzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYy
+MTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
