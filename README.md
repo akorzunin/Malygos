@@ -73,7 +73,9 @@ Schematic Diagrams
 
 ### Button
 ![Button](https://user-images.githubusercontent.com/54314123/137337599-0c6f3976-c660-4446-821b-c970a43d1695.png)
-Button general
+NOTE: all disconnected pins connected with wires
+### Button general
+![Button general](https://user-images.githubusercontent.com/54314123/137337667-c846fdd1-4eb5-4d7b-910f-a5f02ff11912.png)
 
 
 	- lump(внешняя)
@@ -92,7 +94,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0Mzk1Nzg1NCwyOTc4MDA2ODAsMjEzNj
+eyJoaXN0b3J5IjpbLTQwNjMzNzcyNiwyOTc4MDA2ODAsMjEzNj
 k4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC04MDEwMDA1
 NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAwOTQsLT
 Y0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMTQ4NDI1
