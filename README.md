@@ -12,7 +12,7 @@ How to use
 Settings
 ---
 описание некоторый насптроек из .h файла
-3
+
 
 Schematic Diagrams
 ---
@@ -25,7 +25,10 @@ Schematic Diagrams
 	- Display
 	- 
 
-
+3D models
+---
+- рендеры моделей
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNjE4ODcxOSwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
