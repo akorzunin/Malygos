@@ -7,6 +7,9 @@ How to use
 ---
 Top view:
 ![Artboard 1](https://user-images.githubusercontent.com/54314123/137303006-9e96bf90-dd47-48e2-9a92-495c06d83456.png)
+1. MODE button
+2. RESET button
+3. START button
 
 Right side view:
 ![Artboard 2](https://user-images.githubusercontent.com/54314123/137315055-df0e9c35-79ad-4655-a752-640abe631d8b.png)
@@ -14,7 +17,7 @@ Front view:
 ![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
 
 Rear view:
-
+![image](https://user-images.githubusercontent.com/54314123/137315934-f6aca98a-af7f-4295-8fb9-7bb81112c131.png)
 
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
@@ -46,7 +49,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMzIwMTAyMSw3MzE5NTU5MDgsLTE5OD
+eyJoaXN0b3J5IjpbMTIzNTc3MzIwNCw3MzE5NTU5MDgsLTE5OD
 M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
 NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
