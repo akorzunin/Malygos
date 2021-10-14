@@ -78,8 +78,11 @@ NOTE: all disconnected pins connected with wires
 ![Button general](https://user-images.githubusercontent.com/54314123/137337667-c846fdd1-4eb5-4d7b-910f-a5f02ff11912.png)
 ### MCU general
 ![MCU](https://user-images.githubusercontent.com/54314123/137338031-9ddc6f52-7889-4602-b8a7-b0450a896589.png)
+### Sound preamp and interrupt circuitry
+![sound and interrupt](https://user-images.githubusercontent.com/54314123/137338257-ffad3237-c4b2-4a39-8651-c85a5b550bc1.png)
 
-
+### Display
+![displayt](https://user-images.githubusercontent.com/54314123/137338482-ecfbc6aa-3d41-4327-834c-86868dee4ab4.png)
 
 
 pinouts
@@ -93,9 +96,9 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE2NDM1OTYxLDI5NzgwMDY4MCwyMTM2OT
-g5NTEyLC0yMDE3NjczMDg1LDE5MjU3NzkzNzUsLTgwMTAwMDU1
-MSw3MzE5NTU5MDgsLTE5ODM5NzIxNzksMTUxMjE3MDA5NCwtNj
-QzNjI0MDYzLDIxMDE5NjIxNDksMjI5ODA1NjY4LC0xNDg0MjU4
-MTc1XX0=
+eyJoaXN0b3J5IjpbMjA3MTQ5OTQwMCwyOTc4MDA2ODAsMjEzNj
+k4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC04MDEwMDA1
+NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAwOTQsLT
+Y0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMTQ4NDI1
+ODE3NV19
 -->
