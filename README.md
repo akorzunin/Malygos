@@ -11,6 +11,9 @@ Top view:
 Right side view:
 ![Artboard 2](https://user-images.githubusercontent.com/54314123/137315055-df0e9c35-79ad-4655-a752-640abe631d8b.png)
 Front view:
+![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
+
+Rear view:
 
 
 - описание в целом как можно питать\прошивать\
@@ -43,7 +46,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MT
-IxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2
-OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbMTEyMzIwMTAyMSw3MzE5NTU5MDgsLTE5OD
+M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
+NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
