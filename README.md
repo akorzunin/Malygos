@@ -6,6 +6,7 @@ Control panel for intelligent team games
 TOC
 ---
 
+
 Introduction
 ---
 ### Top view:
@@ -110,7 +111,7 @@ Pinouts
 ### [Link to 3D model files](https://drive.google.com/drive/folders/1glD-m7AfNhhwmj9JeYmmNtsMjrS1i6tw)
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNTM4MjQyOSwtMTIzNjIyNDk3NCwxND
+eyJoaXN0b3J5IjpbMTIwMDM2MzMxNywtMTIzNjIyNDk3NCwxND
 A0MDU4OTU0LC0xODY4Njk5OTE0LDIwNzE0OTk0MDAsMjk3ODAw
 NjgwLDIxMzY5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NS
 wtODAxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEy
