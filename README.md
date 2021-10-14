@@ -71,7 +71,8 @@ Schematic Diagrams
 ### Front panel
 ![Front panel](https://user-images.githubusercontent.com/54314123/137330713-57e81d27-af7b-445b-a6dc-227b47d18e88.png)
 
-## Button(внешняя)
+### Button
+
 	- lump(внешняя)
 	- sound generator
 	- MCU
@@ -88,8 +89,9 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk3ODAwNjgwLDIxMzY5ODk1MTIsLTIwMT
-c2NzMwODUsMTkyNTc3OTM3NSwtODAxMDAwNTUxLDczMTk1NTkw
-OCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC02NDM2MjQwNjMsMj
-EwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQyNTgxNzVdfQ==
+eyJoaXN0b3J5IjpbLTE4NDQ2MTE3MDMsMjk3ODAwNjgwLDIxMz
+Y5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NSwtODAxMDAw
+NTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC
+02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQy
+NTgxNzVdfQ==
 -->
