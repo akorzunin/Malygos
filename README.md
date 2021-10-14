@@ -1,6 +1,6 @@
 # Malygos
-Пульт управления для проведения интеллектуальных командных игр 
 Control panel for intelligent team games
+Пульт управления для проведения интеллектуальных командных игр ]
 ![Untitled](https://user-images.githubusercontent.com/54314123/137319788-ccec4c78-6cbe-46f5-9a30-05d019a2019e.JPG)
 
 
@@ -85,8 +85,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUyMjk0MjIzLDE5MjU3NzkzNzUsLTgwMT
-AwMDU1MSw3MzE5NTU5MDgsLTE5ODM5NzIxNzksMTUxMjE3MDA5
-NCwtNjQzNjI0MDYzLDIxMDE5NjIxNDksMjI5ODA1NjY4LC0xND
-g0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbMTkzMzQ1NTk3NiwxOTI1Nzc5Mzc1LC04MD
+EwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAw
+OTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMT
+Q4NDI1ODE3NV19
 -->
