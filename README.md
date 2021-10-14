@@ -5,7 +5,8 @@ Control panel for intelligent team games
 
 How to use
 ---
-- описание в цело
+- описание в целом как можно питать\прошивать\
+- элементы интерфейса 3кнопки\4бит сс\1битсс\
 - описание работы режимов
 - 
 
@@ -22,5 +23,5 @@ Schematic Diagrams
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTE2NDgzMzZdfQ==
+eyJoaXN0b3J5IjpbLTE0ODQyNTgxNzVdfQ==
 -->
