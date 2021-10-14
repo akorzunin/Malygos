@@ -32,8 +32,8 @@ Introduction
 How to use
 ===
 ## Quick start
-1. Plug in power 12V DC
-2. Plug in speaker
+1. Attach the AC/DC adapter to the DC-In jack
+2. Attach speaker to audio jack
 3. Plug in display
 4. Chose 
 
@@ -67,7 +67,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3OTA4MzE2NCw3MzE5NTU5MDgsLTE5OD
+eyJoaXN0b3J5IjpbMTUxMzM0MzE0MSw3MzE5NTU5MDgsLTE5OD
 M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
 NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
