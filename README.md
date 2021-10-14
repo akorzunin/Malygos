@@ -9,6 +9,10 @@ How to use
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
 - описание работы режимов
 - 
+Settings
+---
+описание некоторый насптроек из .h файла
+3
 
 Schematic Diagrams
 ---
@@ -23,5 +27,5 @@ Schematic Diagrams
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODQyNTgxNzVdfQ==
+eyJoaXN0b3J5IjpbMTAxNjE4ODcxOSwtMTQ4NDI1ODE3NV19
 -->
