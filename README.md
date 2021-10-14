@@ -24,11 +24,13 @@ Schematic Diagrams
 	- MCU
 	- Display
 	- 
+	- 
 
 3D models
 ---
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbLTE3Mzg5NTM2MzEsMjI5ODA1NjY4LC0xND
+g0MjU4MTc1XX0=
 -->
