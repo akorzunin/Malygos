@@ -45,7 +45,14 @@ How to use
 
 Settings
 ---
-описание некоторый насптроек из .h файла
+- Adjust menu button timings:
+	```
+	//настройки для обработки кнопок меню [мс]
+
+	#define DEBOUNCE 80 //антидребезг
+	#define HOLD_TIMEOUT 1000 //удрежание
+	#define CLICK_TIMEOUT 500 //одиночное нажатие
+	```
 
 
 Schematic Diagrams
@@ -69,7 +76,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMTAwMDU1MSw3MzE5NTU5MDgsLTE5OD
-M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
-NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbMTM1MjI1NDg1MiwtODAxMDAwNTUxLDczMT
+k1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC02NDM2MjQw
+NjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQyNTgxNzVdfQ
+==
 -->
