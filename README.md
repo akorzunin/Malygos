@@ -7,12 +7,14 @@ Schematic Diagrams
 ---
 - System block diagram
 	- Front panel
-	- button
-	- lump
+	- button(внешняя)
+	- lump(внешняя)
 	- sound generator
 	- MCU
+	- Display
+	- 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTg0NDMwNzFdfQ==
+eyJoaXN0b3J5IjpbLTUxODAyNjMzXX0=
 -->
