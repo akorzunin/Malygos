@@ -12,10 +12,14 @@ Top view:
 3. START button
 4. Time display
 5. Mode indicator
-6. Players button state indicator
+6. Player button state indicator
 
 Right side view:
 ![Artboard 2](https://user-images.githubusercontent.com/54314123/137315055-df0e9c35-79ad-4655-a752-640abe631d8b.png)
+7. DC power in
+8. Power switch
+9. Volume regulator
+10. Speaker-out 3.5mm jack 
 Front view:
 ![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
 
@@ -52,7 +56,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyMDQ2NjI4Niw3MzE5NTU5MDgsLTE5OD
+eyJoaXN0b3J5IjpbMTM4NjM5MDcwMiw3MzE5NTU5MDgsLTE5OD
 M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
 NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
