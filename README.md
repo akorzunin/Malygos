@@ -3,6 +3,8 @@ Control panel for intelligent team games
 [Пульт управления для проведения интеллектуальных командных игр]
 ![Untitled](https://user-images.githubusercontent.com/54314123/137319788-ccec4c78-6cbe-46f5-9a30-05d019a2019e.JPG)
 
+TOC
+---
 
 Introduction
 ---
@@ -105,10 +107,10 @@ Pinouts
 ![image](https://user-images.githubusercontent.com/54314123/137342893-4362caee-6bad-4a27-942b-f66204f06fed.png)
 ### Power supply
 ![image](https://user-images.githubusercontent.com/54314123/137343497-192f2d97-ff4b-4ca6-bdea-04e1dba4017e.png)
-[Link to #D model files]()
+### [Link to 3D model files](https://drive.google.com/drive/folders/1glD-m7AfNhhwmj9JeYmmNtsMjrS1i6tw)
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MTgwOTExNSwtMTIzNjIyNDk3NCwxND
+eyJoaXN0b3J5IjpbLTMwNTM4MjQyOSwtMTIzNjIyNDk3NCwxND
 A0MDU4OTU0LC0xODY4Njk5OTE0LDIwNzE0OTk0MDAsMjk3ODAw
 NjgwLDIxMzY5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NS
 wtODAxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEy
