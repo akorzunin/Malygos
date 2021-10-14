@@ -94,13 +94,15 @@ Pinouts
 
 3D models
 ---
-- Lamp
-	![lamp](https://user-images.githubusercontent.com/54314123/137341362-1e88ea72-3584-4d13-940f-cacdeef3fedf.png)
-- Player button
-	![button](https://user-images.githubusercontent.com/54314123/137341550-47e094f2-5823-4099-9620-5d9f1b8d77ea.png)
+### Main body
+
+### Lamp
+![lamp](https://user-images.githubusercontent.com/54314123/137341362-1e88ea72-3584-4d13-940f-cacdeef3fedf.png)
+### Player button
+![button](https://user-images.githubusercontent.com/54314123/137341550-47e094f2-5823-4099-9620-5d9f1b8d77ea.png)
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4NzgwMzcwNiwtMTg2ODY5OTkxNCwyMD
+eyJoaXN0b3J5IjpbLTI0NTE0NTU1NCwtMTg2ODY5OTkxNCwyMD
 cxNDk5NDAwLDI5NzgwMDY4MCwyMTM2OTg5NTEyLC0yMDE3Njcz
 MDg1LDE5MjU3NzkzNzUsLTgwMTAwMDU1MSw3MzE5NTU5MDgsLT
 E5ODM5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5
