@@ -4,3 +4,4 @@ Programming_prototype_sketch/Programming_prototype_sketch.ino.with_bootloader.ei
 Programming_prototype_sketch/.vscode/arduino.json
 Programming_prototype_sketch/.vscode/c_cpp_properties.json
 *.json
+*.workspace
