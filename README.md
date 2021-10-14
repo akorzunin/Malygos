@@ -68,8 +68,10 @@ Schematic Diagrams
 ===
 ## System block diagram
 ![Malygos Diagram](https://user-images.githubusercontent.com/54314123/137328062-9f11bbd6-0966-4423-834c-058434eea05f.png)
-	- Front panel
-	- button(внешняя)
+### Front panel
+![Front panel](https://user-images.githubusercontent.com/54314123/137330713-57e81d27-af7b-445b-a6dc-227b47d18e88.png)
+
+## Button(внешняя)
 	- lump(внешняя)
 	- sound generator
 	- MCU
@@ -86,8 +88,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNjk4OTUxMiwtMjAxNzY3MzA4NSwxOT
-I1Nzc5Mzc1LC04MDEwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcy
-MTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LD
-IyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbMjk3ODAwNjgwLDIxMzY5ODk1MTIsLTIwMT
+c2NzMwODUsMTkyNTc3OTM3NSwtODAxMDAwNTUxLDczMTk1NTkw
+OCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC02NDM2MjQwNjMsMj
+EwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQyNTgxNzVdfQ==
 -->
