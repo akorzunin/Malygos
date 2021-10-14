@@ -66,7 +66,8 @@ Settings
 
 Schematic Diagrams
 ===
-- System block diagram
+## System block diagram
+![Malygos Diagram](https://user-images.githubusercontent.com/54314123/137328062-9f11bbd6-0966-4423-834c-058434eea05f.png)
 	- Front panel
 	- button(внешняя)
 	- lump(внешняя)
@@ -85,8 +86,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTc2NzMwODUsMTkyNTc3OTM3NSwtOD
-AxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcw
-MDk0LC02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLT
-E0ODQyNTgxNzVdfQ==
+eyJoaXN0b3J5IjpbMjEzNjk4OTUxMiwtMjAxNzY3MzA4NSwxOT
+I1Nzc5Mzc1LC04MDEwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcy
+MTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LD
+IyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
