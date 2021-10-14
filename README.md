@@ -37,8 +37,9 @@ How to use
 3. Plug in display to RS-232 connector
 4. Use front buttons to select and run game modes
 
-- описание в целом как можно питать\прошивать\
-- элементы интерфейса 3кнопки\4бит сс\1битсс\
+## How to update firmware
+1. 
+1. Attach micro USB cable
 - описание работы режимов
 - 
 Settings
@@ -67,7 +68,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MzMzMTYzNCw3MzE5NTU5MDgsLTE5OD
-M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
-NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbLTE4Mjk5MjMzMzUsNzMxOTU1OTA4LC0xOT
+gzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYy
+MTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
