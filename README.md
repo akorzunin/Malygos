@@ -85,20 +85,21 @@ NOTE: all disconnected pins connected with wires
 ![displayt](https://user-images.githubusercontent.com/54314123/137338482-ecfbc6aa-3d41-4327-834c-86868dee4ab4.png)
 
 
-pinouts
+Pinouts
 ---
-- распиновка разьема с кнопкой который юсб-Б
-- распиновка разъема к лампе
+- USB type B player button pinout
+![pinout](https://user-images.githubusercontent.com/54314123/137340688-7850846f-8a02-4305-ba0d-f12852f4eaab.png)
+
 
 
 3D models
 ---
-- рендеры моделей
+-
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MTQ5OTQwMCwyOTc4MDA2ODAsMjEzNj
-k4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC04MDEwMDA1
-NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAwOTQsLT
-Y0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMTQ4NDI1
-ODE3NV19
+eyJoaXN0b3J5IjpbLTE4Njg2OTk5MTQsMjA3MTQ5OTQwMCwyOT
+c4MDA2ODAsMjEzNjk4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5
+Mzc1LC04MDEwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LD
+E1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgw
+NTY2OCwtMTQ4NDI1ODE3NV19
 -->
