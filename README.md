@@ -1,6 +1,6 @@
 # Malygos
 Control panel for intelligent team games
-Пульт управления для проведения интеллектуальных командных игр ]
+[Пульт управления для проведения интеллектуальных командных игр]
 ![Untitled](https://user-images.githubusercontent.com/54314123/137319788-ccec4c78-6cbe-46f5-9a30-05d019a2019e.JPG)
 
 
@@ -65,7 +65,7 @@ Settings
 	
 
 Schematic Diagrams
----
+===
 - System block diagram
 	- Front panel
 	- button(внешняя)
@@ -85,8 +85,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMzQ1NTk3NiwxOTI1Nzc5Mzc1LC04MD
-EwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAw
-OTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMT
-Q4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbLTIwMTc2NzMwODUsMTkyNTc3OTM3NSwtOD
+AxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcw
+MDk0LC02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLT
+E0ODQyNTgxNzVdfQ==
 -->
