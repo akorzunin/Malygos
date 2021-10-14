@@ -38,8 +38,9 @@ How to use
 4. Use front buttons to select and run game modes
 
 ## How to update firmware
-1. 
-1. Attach micro USB cable
+1. Disconnect all peripheral connectors
+2. Attach micro USB cable
+3. Upload firmware file w/ Arduino
 - описание работы режимов
 - 
 Settings
@@ -68,7 +69,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjk5MjMzMzUsNzMxOTU1OTA4LC0xOT
-gzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYy
-MTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbOTU2MDU2NTIsNzMxOTU1OTA4LC0xOTgzOT
+cyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5
+LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
