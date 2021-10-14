@@ -9,9 +9,10 @@ Schematic Diagrams
 	- Front panel
 	- button
 	- lump
-	- 
+	- sound generator
+	- MCU
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTk5ODM3MTFdfQ==
+eyJoaXN0b3J5IjpbLTEyNTg0NDMwNzFdfQ==
 -->
