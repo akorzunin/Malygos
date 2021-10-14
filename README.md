@@ -5,6 +5,10 @@ Control panel for intelligent team games
 
 How to use
 ---
+Front panel:
+![Artboard 1](https://user-images.githubusercontent.com/54314123/137303006-9e96bf90-dd47-48e2-9a92-495c06d83456.png)
+
+
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
 - описание работы режимов
@@ -35,6 +39,6 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0OD
-QyNTgxNzVdfQ==
+eyJoaXN0b3J5IjpbLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOT
+gwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
