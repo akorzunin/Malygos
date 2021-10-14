@@ -40,9 +40,9 @@ How to use
 ## How to update firmware
 1. Disconnect all peripheral connectors
 2. Attach micro USB cable
-3. Upload firmware file w/ Arduino
-- описание работы режимов
-- 
+3. Upload firmware file with Arduino ide
+
+
 Settings
 ---
 описание некоторый насптроек из .h файла
@@ -69,7 +69,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU2MDU2NTIsNzMxOTU1OTA4LC0xOTgzOT
-cyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5
-LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbLTgwMTAwMDU1MSw3MzE5NTU5MDgsLTE5OD
+M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
+NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
