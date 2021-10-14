@@ -104,13 +104,14 @@ Pinouts
 ### Display
 ![image](https://user-images.githubusercontent.com/54314123/137342893-4362caee-6bad-4a27-942b-f66204f06fed.png)
 ### Power supply
-
+![image](https://user-images.githubusercontent.com/54314123/137343497-192f2d97-ff4b-4ca6-bdea-04e1dba4017e.png)
+[Link to #D model files]()
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzYyMjQ5NzQsMTQwNDA1ODk1NCwtMT
-g2ODY5OTkxNCwyMDcxNDk5NDAwLDI5NzgwMDY4MCwyMTM2OTg5
-NTEyLC0yMDE3NjczMDg1LDE5MjU3NzkzNzUsLTgwMTAwMDU1MS
-w3MzE5NTU5MDgsLTE5ODM5NzIxNzksMTUxMjE3MDA5NCwtNjQz
-NjI0MDYzLDIxMDE5NjIxNDksMjI5ODA1NjY4LC0xNDg0MjU4MT
-c1XX0=
+eyJoaXN0b3J5IjpbMTc5MTgwOTExNSwtMTIzNjIyNDk3NCwxND
+A0MDU4OTU0LC0xODY4Njk5OTE0LDIwNzE0OTk0MDAsMjk3ODAw
+NjgwLDIxMzY5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NS
+wtODAxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEy
+MTcwMDk0LC02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2Nj
+gsLTE0ODQyNTgxNzVdfQ==
 -->
