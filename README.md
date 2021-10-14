@@ -80,6 +80,9 @@ NOTE: all disconnected pins connected with wires
 ![MCU](https://user-images.githubusercontent.com/54314123/137338031-9ddc6f52-7889-4602-b8a7-b0450a896589.png)
 ### Sound preamp and interrupt circuitry
 ![sound and interrupt](https://user-images.githubusercontent.com/54314123/137338257-ffad3237-c4b2-4a39-8651-c85a5b550bc1.png)
+### Sound generator
+![sound_gen](https://user-images.githubusercontent.com/54314123/137346394-c1aef279-cff1-4c97-8076-35be6c8c4b75.png)
+NOTE: Sound generator attached before sound preamp
 
 ### Display
 ![displayt](https://user-images.githubusercontent.com/54314123/137338482-ecfbc6aa-3d41-4327-834c-86868dee4ab4.png)
@@ -108,10 +111,10 @@ Pinouts
 ### [Link to 3D model files](https://drive.google.com/drive/folders/1glD-m7AfNhhwmj9JeYmmNtsMjrS1i6tw)
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMjcwNTMwLC0xMjM2MjI0OTc0LDE0MD
-QwNTg5NTQsLTE4Njg2OTk5MTQsMjA3MTQ5OTQwMCwyOTc4MDA2
-ODAsMjEzNjk4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC
-04MDEwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIx
-NzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OC
-wtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbLTIzNzcyMTQxOSwtNzAyNzA1MzAsLTEyMz
+YyMjQ5NzQsMTQwNDA1ODk1NCwtMTg2ODY5OTkxNCwyMDcxNDk5
+NDAwLDI5NzgwMDY4MCwyMTM2OTg5NTEyLC0yMDE3NjczMDg1LD
+E5MjU3NzkzNzUsLTgwMTAwMDU1MSw3MzE5NTU5MDgsLTE5ODM5
+NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIxND
+ksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
