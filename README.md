@@ -34,8 +34,8 @@ How to use
 ## Quick start
 1. Attach the AC/DC adapter to the DC-In jack
 2. Attach speaker to audio jack
-3. Plug in display
-4. Chose 
+3. Plug in display to RS-232 connector
+4. Use front buttons to select and run game modes
 
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
@@ -67,7 +67,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMzM0MzE0MSw3MzE5NTU5MDgsLTE5OD
+eyJoaXN0b3J5IjpbMTM2MzMzMTYzNCw3MzE5NTU5MDgsLTE5OD
 M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
 NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
