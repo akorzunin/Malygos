@@ -3,7 +3,7 @@
 [placeholder for solidworks render whole model]
 Control panel for intelligent team games
 
-How to use
+Introduction
 ---
 ### Top view:
 ![Artboard 1](https://user-images.githubusercontent.com/54314123/137303006-9e96bf90-dd47-48e2-9a92-495c06d83456.png)
@@ -23,9 +23,13 @@ How to use
 ### Front view:
 ![Artboard 3](https://user-images.githubusercontent.com/54314123/137315685-522b7b23-c030-4e0a-854c-928fd0ea4df7.png)
 
-Rear view:
+### Rear view:
 ![image](https://user-images.githubusercontent.com/54314123/137315934-f6aca98a-af7f-4295-8fb9-7bb81112c131.png)
- - 
+ - 15 USB type B ports
+
+How to use
+---
+## Quick 
 
 - описание в целом как можно питать\прошивать\
 - элементы интерфейса 3кнопки\4бит сс\1битсс\
@@ -57,7 +61,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzcxMDcxNTMsNzMxOTU1OTA4LC0xOT
-gzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2MywyMTAxOTYy
-MTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
+eyJoaXN0b3J5IjpbLTUxMDU5Mjk1Niw3MzE5NTU5MDgsLTE5OD
+M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
+NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
