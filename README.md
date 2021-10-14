@@ -10,6 +10,9 @@ Top view:
 1. MODE button
 2. RESET button
 3. START button
+4. Time display
+5. Mode indicator
+6. Players button state indicator
 
 Right side view:
 ![Artboard 2](https://user-images.githubusercontent.com/54314123/137315055-df0e9c35-79ad-4655-a752-640abe631d8b.png)
@@ -49,7 +52,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNTc3MzIwNCw3MzE5NTU5MDgsLTE5OD
+eyJoaXN0b3J5IjpbLTUyMDQ2NjI4Niw3MzE5NTU5MDgsLTE5OD
 M5NzIxNzksMTUxMjE3MDA5NCwtNjQzNjI0MDYzLDIxMDE5NjIx
 NDksMjI5ODA1NjY4LC0xNDg0MjU4MTc1XX0=
 -->
