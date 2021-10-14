@@ -72,6 +72,9 @@ Schematic Diagrams
 ![Front panel](https://user-images.githubusercontent.com/54314123/137330713-57e81d27-af7b-445b-a6dc-227b47d18e88.png)
 
 ### Button
+![Button](https://user-images.githubusercontent.com/54314123/137337599-0c6f3976-c660-4446-821b-c970a43d1695.png)
+Button general
+
 
 	- lump(внешняя)
 	- sound generator
@@ -89,9 +92,9 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDQ2MTE3MDMsMjk3ODAwNjgwLDIxMz
-Y5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NSwtODAxMDAw
-NTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC
-02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQy
-NTgxNzVdfQ==
+eyJoaXN0b3J5IjpbMjA0Mzk1Nzg1NCwyOTc4MDA2ODAsMjEzNj
+k4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC04MDEwMDA1
+NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAwOTQsLT
+Y0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMTQ4NDI1
+ODE3NV19
 -->
