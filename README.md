@@ -3,9 +3,6 @@ Control panel for intelligent team games
 [Пульт управления для проведения интеллектуальных командных игр]
 ![Untitled](https://user-images.githubusercontent.com/54314123/137319788-ccec4c78-6cbe-46f5-9a30-05d019a2019e.JPG)
 
-TOC
----
-
 
 Introduction
 ---
@@ -111,10 +108,10 @@ Pinouts
 ### [Link to 3D model files](https://drive.google.com/drive/folders/1glD-m7AfNhhwmj9JeYmmNtsMjrS1i6tw)
   
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMDM2MzMxNywtMTIzNjIyNDk3NCwxND
-A0MDU4OTU0LC0xODY4Njk5OTE0LDIwNzE0OTk0MDAsMjk3ODAw
-NjgwLDIxMzY5ODk1MTIsLTIwMTc2NzMwODUsMTkyNTc3OTM3NS
-wtODAxMDAwNTUxLDczMTk1NTkwOCwtMTk4Mzk3MjE3OSwxNTEy
-MTcwMDk0LC02NDM2MjQwNjMsMjEwMTk2MjE0OSwyMjk4MDU2Nj
-gsLTE0ODQyNTgxNzVdfQ==
+eyJoaXN0b3J5IjpbLTcwMjcwNTMwLC0xMjM2MjI0OTc0LDE0MD
+QwNTg5NTQsLTE4Njg2OTk5MTQsMjA3MTQ5OTQwMCwyOTc4MDA2
+ODAsMjEzNjk4OTUxMiwtMjAxNzY3MzA4NSwxOTI1Nzc5Mzc1LC
+04MDEwMDA1NTEsNzMxOTU1OTA4LC0xOTgzOTcyMTc5LDE1MTIx
+NzAwOTQsLTY0MzYyNDA2MywyMTAxOTYyMTQ5LDIyOTgwNTY2OC
+wtMTQ4NDI1ODE3NV19
 -->
