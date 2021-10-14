@@ -3,6 +3,12 @@
 [placeholder for solidworks render whole model]
 Control panel for intelligent team games
 
+How to use
+---
+- описание в цело
+- описание работы режимов
+- 
+
 Schematic Diagrams
 ---
 - System block diagram
@@ -16,5 +22,5 @@ Schematic Diagrams
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxODAyNjMzXX0=
+eyJoaXN0b3J5IjpbLTEzOTE2NDgzMzZdfQ==
 -->
