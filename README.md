@@ -53,7 +53,14 @@ Settings
 	#define HOLD_TIMEOUT 1000 //удрежание
 	#define CLICK_TIMEOUT 500 //одиночное нажатие
 	```
-
+- Change setting of sound subsystem
+	```
+	//настройки звуковых сигналов  
+	#define SHORT_SHORT_TONE_DUR 100  
+	#define SHORT_TONE_DUR 300  
+	#define LONG_TONE_DUR 1000  
+	#define TONE_FREQ 500
+	```
 
 Schematic Diagrams
 ---
@@ -76,8 +83,7 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MjI1NDg1MiwtODAxMDAwNTUxLDczMT
-k1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC02NDM2MjQw
-NjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQyNTgxNzVdfQ
-==
+eyJoaXN0b3J5IjpbNzMyNTI0MTg4LC04MDEwMDA1NTEsNzMxOT
+U1OTA4LC0xOTgzOTcyMTc5LDE1MTIxNzAwOTQsLTY0MzYyNDA2
+MywyMTAxOTYyMTQ5LDIyOTgwNTY2OCwtMTQ4NDI1ODE3NV19
 -->
