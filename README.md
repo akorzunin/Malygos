@@ -23,14 +23,18 @@ Schematic Diagrams
 	- sound generator
 	- MCU
 	- Display
-	- 
-	- 
+
+pinouts
+---
+- распиновка разьема с кнопкой который юсб-Б
+- распиновка разъема к лампе
+
 
 3D models
 ---
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mzg5NTM2MzEsMjI5ODA1NjY4LC0xND
-g0MjU4MTc1XX0=
+eyJoaXN0b3J5IjpbMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0OD
+QyNTgxNzVdfQ==
 -->
