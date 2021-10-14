@@ -1,7 +1,8 @@
 # Malygos
 Пульт управления для проведения интеллектуальных командных игр 
-[placeholder for solidworks render whole model]
 Control panel for intelligent team games
+![Untitled](https://user-images.githubusercontent.com/54314123/137319788-ccec4c78-6cbe-46f5-9a30-05d019a2019e.JPG)
+
 
 Introduction
 ---
@@ -84,8 +85,8 @@ pinouts
 - рендеры моделей
 - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNTc3OTM3NSwtODAxMDAwNTUxLDczMT
-k1NTkwOCwtMTk4Mzk3MjE3OSwxNTEyMTcwMDk0LC02NDM2MjQw
-NjMsMjEwMTk2MjE0OSwyMjk4MDU2NjgsLTE0ODQyNTgxNzVdfQ
-==
+eyJoaXN0b3J5IjpbNjUyMjk0MjIzLDE5MjU3NzkzNzUsLTgwMT
+AwMDU1MSw3MzE5NTU5MDgsLTE5ODM5NzIxNzksMTUxMjE3MDA5
+NCwtNjQzNjI0MDYzLDIxMDE5NjIxNDksMjI5ODA1NjY4LC0xND
+g0MjU4MTc1XX0=
 -->
